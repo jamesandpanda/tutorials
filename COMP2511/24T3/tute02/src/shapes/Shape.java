@@ -1,10 +1,10 @@
 package shapes;
 
 public class Shape {
-    public String color;
+    public String colour;
 
-    public Shape(String color) {
+    public Shape(String colour) {
         System.out.println("Inside Shape constructor");
-        this.color = color;
+        this.colour = colour;
     }
 }

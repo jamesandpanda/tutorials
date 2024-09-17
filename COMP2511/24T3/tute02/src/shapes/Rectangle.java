@@ -4,13 +4,13 @@ public class Rectangle extends Shape {
     public int height;
     public int width;
 
-    public Rectangle(String color) {
-        super(color);
+    public Rectangle(String colour) {
+        super(colour);
         System.out.println("Inside Rectangle constructor with one argument");
     }
 
-    public Rectangle(String color, int width, int height) {
-        this(color);
+    public Rectangle(String colour, int width, int height) {
+        this(colour);
         this.width = width;
         this.height = height;
         System.out.println("Inside Rectangle constructor with three arguments");
