@@ -4,13 +4,13 @@
 
 Complete the following activities:
 
-1. [QUESTION] Can you override a static method? Why or why not?
+1. [CODE REVIEW] Explore method **overriding** in `src/overriding/Main.java`.
 
-2. [CODE REVIEW] Explore method **overriding** in `src/overriding/Main.java`.
+2. [CODE REVIEW] Explore the functionality of static fields in `src/staticfield/Main.java`.
 
-3. [CODE REVIEW] Explore the functionality of static fields in `src/staticfield/Main.java`.
+3. [QUESTION] Can you override a static method? Why or why not?
 
-4. [CODE REVIEW] Explore method **hiding** in `src/hiding/Main.java`. This should be treated as extra material, and is not too important!
+4. [CODE REVIEW, EXTENSION] Explore method **hiding** in `src/hiding/Main.java`, if time permits. This should be treated as extra material!
 
 ## B. Wondrous
 
