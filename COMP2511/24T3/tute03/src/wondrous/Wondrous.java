@@ -7,14 +7,12 @@ public class Wondrous {
     public List<Integer> wondrous(int start) {
         if (start < 1) {
             throw new IllegalArgumentException("start has to be positive");
+        } else if (start == 1) {
+            return new ArrayList<>();
         }
 
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();
-
-        if (start == 1) {
-            return sequence;
-        }
 
         while (current != 1) {
             sequence.add(current);
