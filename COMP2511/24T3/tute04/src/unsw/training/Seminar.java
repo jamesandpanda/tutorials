@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class Seminar {
     private LocalDate start;
-
     private List<String> attendees;
 
     public LocalDate getStart() {
