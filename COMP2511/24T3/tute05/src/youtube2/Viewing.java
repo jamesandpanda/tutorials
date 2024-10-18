@@ -1,13 +1,13 @@
 package youtube2;
 
-import youtube2.state.ReadyState;
+import youtube2.state.PausedState;
 import youtube2.state.ViewingState;
 
 public class Viewing {
     private Video video;
     private Video nextVideo;
     private User user;
-    private ViewingState state = new ReadyState(this);
+    private ViewingState state = new PausedState(this);
     private boolean playing = false;
 
     public Viewing(Video video, Video nextVideo, User user) {
