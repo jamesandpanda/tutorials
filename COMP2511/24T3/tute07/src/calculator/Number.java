@@ -1,5 +1,5 @@
 package calculator;
 
-public class Number {
+public class Number implements Expression {
     
 }
