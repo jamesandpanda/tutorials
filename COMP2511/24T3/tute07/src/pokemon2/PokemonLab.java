@@ -1,52 +1,37 @@
 package pokemon2;
 
-import java.util.Random;
 import java.util.Scanner;
 
-import pokemon2.johto.Chikorita;
-import pokemon2.johto.Cyndaquil;
-import pokemon2.johto.Totodile;
-import pokemon2.kanto.*;
-
 public class PokemonLab {
+    private static PokemonFactory f;
+
     public static void main(String[] args) {
         System.out.println("Are you from Kanto or Johto?");
         Scanner sc = new Scanner(System.in);
         String region = sc.nextLine();
 
+        switch (region) {
+            case "Kanto":
+                f = new KantoPokemonFactory(); break;
+            case "Johto":
+                f = new JohtoPokemonFactory(); break;
+            default:
+                sc.close();
+                throw new IllegalArgumentException("Invalid region");
+        }
+
         System.out.println("Would you like to choose the Grass, Fire or Water type Pokemon?");
         String type = sc.nextLine();
         sc.close();
 
-        int r = new Random().nextInt(Nature.values().length);
         Pokemon p;
-        switch (region) {
-            case "Kanto":
-            switch (type) {
-                case "Grass":
-                    p = new Bulbasaur(Nature.values()[r]); break;
-                case "Fire":
-                    p = new Charmander(Nature.values()[r]); break;
-                case "Water":
-                    p = new Squirtle(Nature.values()[r]); break;
-                default:
-                    throw new IllegalArgumentException("Unknown Pokemon");
-            }
-            break;
-
-            case "Johto":
-            switch (type) {
-                case "Grass":
-                    p = new Chikorita(Nature.values()[r]); break;
-                case "Fire":
-                    p = new Cyndaquil(Nature.values()[r]); break;
-                case "Water":
-                    p = new Totodile(Nature.values()[r]); break;
-                default:
-                    throw new IllegalArgumentException("Unknown Pokemon");
-            }
-            break;
-
+        switch (type) {
+            case "Grass":
+                p = f.getGrass(); break;
+            case "Fire":
+                p = f.getFire(); break;
+            case "Water":
+                p = f.getWater(); break;
             default:
                 throw new IllegalArgumentException("Unknown Pokemon");
         }

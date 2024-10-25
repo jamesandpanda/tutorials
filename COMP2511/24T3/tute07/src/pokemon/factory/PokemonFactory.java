@@ -4,6 +4,7 @@ import java.util.Random;
 
 import pokemon.*;
 
+// We abstract away the construction of these objects through this factory class.
 public class PokemonFactory {
     public static Pokemon createPokemon(String type) {
         Nature n = Nature.values()[new Random().nextInt(Nature.values().length)];
