@@ -17,7 +17,8 @@ public class PokemonLab {
         // was very difficult! The motivation behind this example would make more sense.
         Pokemon p = PokemonFactory.createPokemon(type);
 
-        System.out.println("You chose the " + type + " type Pokemon, " + p.toString()
-            + "! " + p.toString() + " has the " + p.getNature().toString() + " nature.");
+        // Printing will implicitly call .toString(), so it is unnecessary.
+        System.out.println("You chose the " + type + " type Pokemon, " + p + "! "
+            + p + " has the " + p.getNature() + " nature.");
     }
 }

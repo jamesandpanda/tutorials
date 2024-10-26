@@ -33,10 +33,10 @@ public class PokemonLab {
             case "Water":
                 p = f.getWater(); break;
             default:
-                throw new IllegalArgumentException("Unknown Pokemon");
+                throw new IllegalArgumentException("Unknown type");
         }
 
-        System.out.println("You chose the " + type + " type Pokemon, " + p.toString()
-            + "! " + p.toString() + " has the " + p.getNature().toString() + " nature.");
+        System.out.println("You chose the " + type + " type Pokemon, " + p + "! "
+            + p + " has the " + p.getNature() + " nature.");
     }
 }
