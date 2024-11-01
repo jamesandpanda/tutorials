@@ -6,7 +6,6 @@ package heist;
  * @author Nick Patrikeos + @your name
  */
 public class BankAccountThreadedAccessor extends Thread {
-
     private String user;
     private BankAccount account;
     private int numberOfWithdrawals;

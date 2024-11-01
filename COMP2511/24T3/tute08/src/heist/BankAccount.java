@@ -38,6 +38,10 @@ public class BankAccount {
      */
     public boolean withdraw(int amount) {
         if (amount <= balance) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {}
+
             balance -= amount;
             return true;
         }
