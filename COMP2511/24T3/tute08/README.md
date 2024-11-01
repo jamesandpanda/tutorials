@@ -105,3 +105,17 @@ Imagine you are running a milk tea store, where customers can order a regular mi
 - Milk Foam, costing $1.00
 
 Creating concrete classes for each different type of combination like `MilkTeaWithPearls`, `MilkTeaWithPearlsAndLycheeJelly`, `MilkTeaWithLycheeJellyAndMilkFoam` would certainly get out of hand very quickly! Not to mention, customers should be able to order as many toppings as they would like, so there are actually infinite possibilities for the toppings a customer could want (ignoring how many would actually fit inside the cup!). Design a system in `src/milktea` that uses the Decorator Pattern to fulfill these requirements.
+
+## D. Visitor Pattern
+
+In `src/computer` we have `Computer`s, `Keyboard`s and `Mouse`s which all are of type `ComputerComponent`. We want to be able to 'visit' different types of Computer components by logging the following messages:
+
+```
+Looking at computer Corelli with memory 500 GB.
+Looking at keyboard Mechanical keyboard which has 36 keys.
+Looking at mouse Bluetooth mouse.
+```
+
+In particular though, anyone which is visiting a `Computer` must be **validated** prior to being able to visit.
+
+Extend/modify the starter code to use the Visitor Pattern to allow different computer components to be visited.

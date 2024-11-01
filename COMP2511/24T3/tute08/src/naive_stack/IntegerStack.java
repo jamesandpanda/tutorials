@@ -6,11 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * A Simple Stack.
- * 
- * @param <E>
- * 
- * @author Nick Patrikeos
+ * A stack of ints.
  */
 public class IntegerStack implements Iterable<Integer> {
     private List<Integer> elements = new ArrayList<Integer>();
@@ -64,7 +60,7 @@ public class IntegerStack implements Iterable<Integer> {
      */
     public ArrayList<Integer> toArrayList() {
         ArrayList<Integer> copy = new ArrayList<Integer>(elements); // important here that we don't return a pointer and give the
-                                                        // user the keys!!
+                                                                    // user the keys!!
         return copy;
     }
 
