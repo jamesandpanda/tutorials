@@ -45,6 +45,16 @@ public class Stack<E> implements Iterable<E> {
         ArrayList<E> copy = new ArrayList<E>(list);
         Collections.reverse(copy);
 
+        // The iterator will function on this copy.
+        // The copy is reversed because a stack represented as [1, 2, 3, 4]
+        // would be expected to be iterated as 4 -> 3 -> 2 -> 1 (first in last out).
+
+        // Note: This iterator wouldn't really work if elements were to be pushed or popped
+        // from the stack (it might, but there is no guarantee). This is related to
+        // the idea of *iterator invalidation*, where an iterator can no longer
+        // be considered valid for use if the container is to be modified. Some
+        // containers offer ways around this, like a remove() method returning a
+        // newly valid iterator, but not all do.
         return copy.iterator();
     }
 
@@ -78,6 +88,7 @@ public class Stack<E> implements Iterable<E> {
         System.out.print("[");
         if (stack.size() == 0) {
             System.out.println("]");
+            return;
         }
 
         Iterator<?> iter = stack.iterator();
@@ -85,6 +96,7 @@ public class Stack<E> implements Iterable<E> {
         for (int i = 0; i < stack.size() - 1; i++) {
             System.out.print(iter.next() + " ");
         }
+
         System.out.println(iter.next() + "]");
     }   
 
@@ -103,10 +115,11 @@ public class Stack<E> implements Iterable<E> {
 
         Stack<Integer> nums = new Stack<Integer>();
         nums.push(1);
-        nums.push(1);
-        nums.push(1);
+        nums.push(2);
+        nums.push(3);
+
+        prettyPrint(nums);
         System.out.println(Stack.sumStack(nums));
-        prettyPrint(stack);
     }
 
 }
