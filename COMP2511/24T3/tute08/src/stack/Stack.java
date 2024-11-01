@@ -42,7 +42,10 @@ public class Stack<E> implements Iterable<E> {
      * Returns an iterator to the internal data structure of the stack.
      */
     public Iterator<E> iterator() {
-        return toArrayList().iterator();
+        ArrayList<E> copy = new ArrayList<E>(list);
+        Collections.reverse(copy);
+
+        return copy.iterator();
     }
 
     /**
@@ -56,10 +59,7 @@ public class Stack<E> implements Iterable<E> {
      * Returns the stack as an ArrayList
      */
     public ArrayList<E> toArrayList() {
-        ArrayList<E> copy = new ArrayList<E>(list);
-        Collections.reverse(copy);
-
-        return copy;
+        return new ArrayList<E>(list);
     }
 
     public static Integer sumStack(Stack<? extends Integer> stack) {
@@ -74,8 +74,19 @@ public class Stack<E> implements Iterable<E> {
         return sum;
     }
 
-    public static void prettyPrint(Stack<?> stack) {}
-        
+    public static void prettyPrint(Stack<?> stack) {
+        System.out.print("[");
+        if (stack.size() == 0) {
+            System.out.println("]");
+        }
+
+        Iterator<?> iter = stack.iterator();
+
+        for (int i = 0; i < stack.size() - 1; i++) {
+            System.out.print(iter.next() + " ");
+        }
+        System.out.println(iter.next() + "]");
+    }   
 
     public static void main(String[] args) {
         Stack<String> stack = new Stack<String>();
