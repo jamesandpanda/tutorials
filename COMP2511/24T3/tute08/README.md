@@ -99,9 +99,9 @@ Use the Singleton Pattern to ensure that only one person can access the bank at 
 
 ## C. Decorator Pattern
 
-Imagine you are running a milk tea store, where customers can order a regular milk tea ($6.00) with as many of the following toppings as they would like added on top:
+Imagine you are running a milk tea store, where customers can order a regular milk tea ($6.00) and optionally add the following toppings on top:
 - Pearls, costing $0.80
 - Lychee Jelly, costing $0.90
 - Milk Foam, costing $1.00
 
-Design a system in `src/milktea` that uses the Decorator Pattern to fulfill these requirements. 
+Creating concrete classes for each different type of combination like `MilkTeaWithPearls`, `MilkTeaWithPearlsAndLycheeJelly`, `MilkTeaWithLycheeJellyAndMilkFoam` would certainly get out of hand very quickly! Not to mention, customers should be able to order as many toppings as they would like, so there are actually infinite possibilities for the toppings a customer could want (ignoring how many would actually fit inside the cup!). Design a system in `src/milktea` that uses the Decorator Pattern to fulfill these requirements.
