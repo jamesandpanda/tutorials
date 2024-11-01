@@ -96,3 +96,12 @@ Tokyo is leaving the bank, the balance is -1
 ```
 
 Use the Singleton Pattern to ensure that only one person can access the bank at a time. You can assume for simplicity's sake that only one access to *any* bank account can ever be made at a given time.
+
+## C. Decorator Pattern
+
+Imagine you are running a milk tea store, where customers can order a regular milk tea ($6.00) with as many of the following toppings as they would like added on top:
+- Pearls, costing $0.80
+- Lychee Jelly, costing $0.90
+- Milk Foam, costing $1.00
+
+Design a system in `src/milktea` that uses the Decorator Pattern to fulfill these requirements. 
