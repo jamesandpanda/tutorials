@@ -6,14 +6,22 @@ package heist;
  * @author Nick Patrikeos + @your name
  */
 public class BankAccountAccessor {
-    
     private BankAccount account;
+    private static BankAccountAccessor instance = null;
 
-    public BankAccountAccessor(BankAccount account) {
+    public synchronized static BankAccountAccessor instance(BankAccount account) {
+        if (instance == null) {
+            instance = new BankAccountAccessor(account);
+        }
+
+        return instance;
+    }
+
+    private BankAccountAccessor(BankAccount account) {
         this.account = account;
     }
 
-    public void withdraw(String user, int numberOfWithdrawals, int amountPerWithdrawal) {
+    public synchronized void withdraw(String user, int numberOfWithdrawals, int amountPerWithdrawal) {
         System.out.println(user + " is accessing the bank.");
 
         for (int i = 0; i < numberOfWithdrawals; i++) {
