@@ -15,7 +15,6 @@
 #include <algorithm>
 #include <array>
 #include <iostream>
-#include <set>
 #include <vector>
 
 int main(void) {
