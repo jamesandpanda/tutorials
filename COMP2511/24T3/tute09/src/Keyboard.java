@@ -18,4 +18,12 @@ public class Keyboard implements ComputerComponent {
     public String toString() {
         return name;
     }
+
+    // Each class that accepts a visitor will need this method. This unfortunately requires you
+    // to modify the classes to be visited, but this change is at least trivial and simply calls
+    // the appropriate visit method.
+    @Override
+    public void accept(ComputerVisitor visitor) {
+        visitor.visitKeyboard(this);
+    }
 }
