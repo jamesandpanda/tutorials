@@ -103,7 +103,7 @@ public class Title {
 }
 ```
 
-> Code Smells: Inappropriate Intimacy, Message Chains (Law of Demeter), Data Classes/Lazy Classes
+> Code Smells: Inappropriate Intimacy, Message Chains (Law of Demeter), Data Classes/Lazy Classes\
 > Refactor by making fields private, and just representing the title as a string (opposite problem as previous).\
 > Design Problem: High coupling, as data is not encapsulated.
 
