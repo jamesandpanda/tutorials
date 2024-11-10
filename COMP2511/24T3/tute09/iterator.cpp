@@ -20,7 +20,7 @@
 int main(void) {
     auto a = std::array<int, 5>{21, -5, 5, 2, 3}; // int[] a = {21, -5, 5, 2, 3};
 
-    auto v = std::vector<int>{-45, 23, 4, 2, 6}; // List<Integer> = new ArrayList<Integer>(-45, 23, 4, 2, 6);
+    auto v = std::vector<int>{-45, 23, 4, 2, 6}; // List<Integer> v = new ArrayList<Integer>(-45, 23, 4, 2, 6);
 
     // To get an iterator representing the start of a container in C++, .begin() is used.
     // To get an iterator representing the end of a container in C++, .end() is used.
