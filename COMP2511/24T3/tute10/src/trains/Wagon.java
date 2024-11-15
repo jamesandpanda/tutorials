@@ -6,4 +6,8 @@ public abstract class Wagon {
     public Wagon(String type) {
         this.type = type;
     }
+
+    public String getType() {
+        return type;
+    }
 }
