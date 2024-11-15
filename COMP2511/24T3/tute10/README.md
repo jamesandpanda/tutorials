@@ -23,6 +23,7 @@ Create a **train builder** that constructs a train in order, wagon by wagon with
 Write a simple test in main that calls the builder directly to construct a train.
 
 Question: How could you extend this solution to add `ToyTrains` and a `ToyTrainBuilder` to the system?
+    > Pretty similar to implementing Abstract Factory. Make a builder interface and concrete builders (e.g. StandardTrainBuilder and ToyTrainBuilder) that implement that interface.
 
 ## C. Kahoot + General Revision
 
