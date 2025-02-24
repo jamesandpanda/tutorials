@@ -16,9 +16,9 @@ public class Employee {
     }
 
     /**
-     * Returns the employee's name
+     * A getter for the employee's name
      *
-     * @return The full name of the employee.
+     * @return the employee's full name
      */
     public String getName() {
         return name;
@@ -49,5 +49,28 @@ public class Employee {
      */
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        // roughly, I want my string to look like
+        // Employee name:[name], salary:[salary]
+
+        return getClass().getName() + " name:" 
+            + name + " salary:" + salary;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        } else if (other == null) {
+            return false;
+        } else if (this.getClass() != other.getClass()) {
+            return false;
+        }
+
+        Employee e = (Employee) other;
+        return salary == e.salary && name.equals(e.name);
     }
 }
