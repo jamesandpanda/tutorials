@@ -5,15 +5,9 @@ import java.util.List;
 
 import employee.Employee;
 
-public class Chihuahua implements Dog {
-    private String colour;
-
+public class Chihuahua extends Dog {
     public Chihuahua(String colour) {
-        this.colour = colour;
-    }
-
-    public String getColour() {
-        return colour;
+        super(colour);
     }
 
     @Override
@@ -33,7 +27,15 @@ public class Chihuahua implements Dog {
 
         for (Object o : animals) {
             if (o instanceof Dog) {
-                ((Dog) o).bark();
+                ((Dog)o).bark();
+            }
+        }
+
+        // Alternative syntax for the above for loop:
+        for (Object o : animals) {
+            if (o instanceof Dog d) {
+                // This will basically type-cast the object and assign it to the variable 'd'.
+                d.bark();
             }
         }
     }
