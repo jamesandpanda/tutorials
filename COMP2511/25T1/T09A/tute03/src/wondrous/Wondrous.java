@@ -5,6 +5,13 @@ import java.util.List;
 
 public class Wondrous {
     public List<Integer> wondrous(int start) {
+        if (start < 1) {
+            throw new IllegalArgumentException("start must be >= 1");
+        }
+        if (start == 1) {
+            return new ArrayList<Integer>();
+        }
+
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();
 
@@ -16,6 +23,7 @@ public class Wondrous {
                 current = (current * 3) + 1;
             }
         }
+        sequence.add(1);
 
         return sequence;
     }
