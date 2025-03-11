@@ -12,6 +12,7 @@ public class Student extends Person {
 
     @Override
     public void setSalary(String payRate) {
+        // Is this valid inheritance?
         return;
     }
 }
