@@ -43,8 +43,8 @@ public abstract class Person {
     /**
      * Sets the salary of a person given their pay rate
      * @param payRate New pay rate of the person
-     * @precondition TODO
-     * @postcondition TODO
+     * @precondition the payRate is one of "LVL0", "LVL1", "LVL2" or "LVL3"
+     * @postcondition the salary is set to the corresponding payrate
      */
     public void setSalary(String payRate) {
         Integer pay = PAY_RATES.get(payRate);

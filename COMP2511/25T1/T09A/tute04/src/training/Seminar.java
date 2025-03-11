@@ -10,14 +10,28 @@ import java.util.List;
  */
 public class Seminar {
     private LocalDate start;
-
     private List<String> attendees;
 
     public LocalDate getStart() {
         return start;
     }
 
-    public List<String> getAttendees() {
-        return attendees;
+    private void addAttendee(String name) {
+        attendees.add(name);
     }
-}
+
+    private int numAttendees() {
+        return attendees.size();
+    }
+
+    public LocalDate bookTraining(String attendee, List<LocalDate> availabilities) {
+        for (LocalDate available : availabilities) {
+            if (start.equals(available) && numAttendees() < 10) {
+                addAttendee(attendee);
+                return available;
+            }
+        }
+
+        return null;
+    }
+    }

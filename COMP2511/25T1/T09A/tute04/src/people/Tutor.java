@@ -10,11 +10,13 @@ public class Tutor extends Person {
 
     @Override
     public int getSalary() {
+        // Is this valid inheritance?
         return 0;
     }
 
     @Override
     public void setSalary(String payRate) {
+        // Is this valid inheritance?
         return;
     }
 
