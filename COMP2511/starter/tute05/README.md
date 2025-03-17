@@ -48,19 +48,14 @@ Write a simple test with print statements inside `YoutubeTest.java`.
 Once this is done, think about what if we want to be able to produce videos and subscribe to videos as well (the way youtube actually works). In groups, draw a UML diagram refactoring the code so that the `Producer` and `User` classes are merged, whilst still using the Observer Pattern.
 
 ## C. State Pattern
-This exercise continues on from Exercise B.
-
-Extend your solution to accomodate the following requirements:
-
-- Users can now view videos. This action is interpreted as a **viewing**, and a viewing has a series of states:
-    - Playing state - the video is playing (Upon entering this state, set playback on)
-    - Paused state - the video is paused, ready to play (Upon entering this state, set playback off)
-    - Buffering state - the video is buffering, so it cannot be either played or paused.
+Consider the `Video` class in `src/video`. A video has a name and duration (in seconds), and can either be playing, paused or finished. Depending on this state, the `play()` and `pause()` methods function differently.
 
 The actions and state transitions are as follows:
 
-| State      | Buffer        | Play  | Pause |
-| -----      | -------       | -------       | ----      |
-| Playing    | Switch to Buffering | Error: Already Playing | Stop playback and switch to Paused |
-| Paused     | Switch to Buffering | Start playback and switch to Playing | Error: Already Paused |
-| Buffering  | If playback is going, switch to Playing. <br> If not, switch to Paused. | Error: Buffering | Error: Buffering |
+| State      | Play        | Pause  |
+| -----      | -------       | -------       |
+| Playing    | Play 1 second of the video. <br> If the end of the video has been reached, switch to Finished. <br> Otherwise, output the remaining number of seconds until completion. | Switch to Paused. |
+| Paused     | Switch to Playing. | Error: Already paused. |
+| Finished   | Restart the video and switch to Playing. | Error: Cannot pause a finished video. |
+
+The current implementation implements the state transitions through an enum. Refactor this code using the State Pattern, and ensure that the correct functionality in `VideoTest.java` still remains.
