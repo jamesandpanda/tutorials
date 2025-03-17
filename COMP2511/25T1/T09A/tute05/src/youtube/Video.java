@@ -2,9 +2,9 @@ package youtube;
 
 public class Video {
     private String name;
-    private Producer producer;
+    private YouTuber producer;
 
-    public Video(String name, Producer producer) {
+    public Video(String name, YouTuber producer) {
         this.name = name;
         this.producer = producer;
     }
