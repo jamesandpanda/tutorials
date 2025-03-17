@@ -18,6 +18,14 @@ public class Video {
         this.state = VideoState.PLAYING;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public int getCurrDuration() {
+        return currDuration;
+    }
+
     public void play() {
         switch (state) {
             case PLAYING:

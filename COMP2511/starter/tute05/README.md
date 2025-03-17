@@ -37,15 +37,15 @@ public interface ChargingStrategy {
   - Prize Draw: A special promotion where every *100th* customer (since the start of the promotion) gets their meal for free!
 
 ## B. Observer Pattern
-In `src/youtube`, create a model for the following requirements of a Youtube-like video creating and watching service using the Observer Pattern:
-- A Producer has a name, a series of subscribers and videos
-- When a producer posts a new video, all of the subscribers are notified that a new video was posted
-- A User has a name, and can subscribe to any producer
-- A video has a name and producer
+In `src/youtube`, create a model for the following requirements of a YouTube-like video creating and watching service using the Observer Pattern:
+- A YouTuber has a name and subscribers.
+- A video has a name and producer (who is a YouTuber).
+- A User has a name and a list of videos to watch later. Users can subscribe to any YouTuber.
+- When a YouTuber posts a new video, all of their subscribers are notified that a new video was posted and this video is added to that subscriber's 'watch later' list.
 
 Write a simple test with print statements inside `YoutubeTest.java`.
 
-Once this is done, think about what if we want to be able to produce videos and subscribe to videos as well (the way youtube actually works). In groups, draw a UML diagram refactoring the code so that the `Producer` and `User` classes are merged, whilst still using the Observer Pattern.
+Once this is done, think about what if we want to be able to produce videos and subscribe to videos as well (the way youtube actually works). In groups, draw a UML diagram refactoring the code so that the `YouTuber` and `User` classes are merged, whilst still using the Observer Pattern.
 
 ## C. State Pattern
 Consider the `Video` class in `src/video`. A video has a name and duration (in seconds), and can either be playing, paused or finished. Depending on this state, the `play()` and `pause()` methods function differently.
