@@ -40,8 +40,8 @@ public interface ChargingStrategy {
 In `src/youtube`, create a model for the following requirements of a Youtube-like video creating and watching service using the Observer Pattern:
 - A Producer has a name, a series of subscribers and videos
 - When a producer posts a new video, all of the subscribers are notified that a new video was posted
-- A User has a name, and can subscribe to any Producer
-- A video has a name, length and producer
+- A User has a name, and can subscribe to any producer
+- A video has a name and producer
 
 Write a simple test with print statements inside `YoutubeTest.java`.
 

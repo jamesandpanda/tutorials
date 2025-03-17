@@ -12,8 +12,8 @@ public class Producer {
         this.name = name;
     }
 
-    public void createVideo(String name, int length) {
-        Video v = new Video(name, length, this);
+    public void createVideo(String name) {
+        Video v = new Video(name, this);
         videos.add(v);
     }
 
