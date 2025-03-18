@@ -11,13 +11,13 @@ public class FinishedState implements VideoState {
 
     @Override
     public void onPlay() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPlay'");
+        System.out.println("Restarting " + video.getName() + " from the start!");
+        video.resetCurrDuration();
+        video.setState(new PlayingState(video));
     }
 
     @Override
     public void onPause() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPause'");
+        System.err.println("Error: Cannot pause a video that is already finished!");
     }
 }

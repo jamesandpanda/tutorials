@@ -7,13 +7,15 @@ import restaurant.Meal;
 public class HappyHourStrategy implements ChargingStrategy {
     @Override
     public double cost(List<Meal> order, boolean payeeIsMember) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cost'");
+        if (payeeIsMember) {
+            return order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
+        } else {
+            return order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
+        }
     }
 
     @Override
     public double getModifier() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getModifier'");
+        return 0.7;
     }
 }

@@ -1,6 +1,7 @@
 package youtube.observer;
 
+import youtube.Video;
+
 public interface Subscriber {
-    // TODO - Change this method signature according to the requirements
-    public void update();
+    public void update(Video v);
 }

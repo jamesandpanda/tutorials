@@ -1,10 +1,9 @@
 package youtube.observer;
 
 public interface Publisher {
-    public void addSubscriber();
+    public void addSubscriber(Subscriber subscriber);
 
-    public void removeSubscriber();
+    public void removeSubscriber(Subscriber subscriber);
 
-    // TODO - Change this method signature according to the requirements
-    public void notifySubscribers();
+    public void createVideo(String name);
 }

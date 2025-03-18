@@ -1,5 +1,7 @@
 package video;
 
+import video.states.*;
+
 public class Video {
     private String name;
     private int duration;
@@ -15,7 +17,7 @@ public class Video {
     public Video(String name, int duration) {
         this.name = name;
         this.duration = duration;
-        this.state = VideoState.PLAYING;
+        this.state = new PlayingState(this);
     }
 
     public int getDuration() {
@@ -26,41 +28,27 @@ public class Video {
         return currDuration;
     }
 
+    public void incrCurrDuration() {
+        currDuration += 1;
+    }
+
+    public void resetCurrDuration() {
+        currDuration = 0;
+    }
+
+    public void setState(VideoState state) {
+        this.state = state;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void play() {
-        switch (state) {
-            case PLAYING:
-                currDuration += 1;
-                if (duration == currDuration) {
-                    System.out.println(name + " has finished playing!");
-                    state = VideoState.FINISHED;
-                } else {
-                    System.out.println("Playing " + name + "! There are " + (duration - currDuration) + " seconds remaining.");
-                }
-                return;
-            case PAUSED:
-                System.out.println("Unpausing " + name + "!");
-                state = VideoState.PLAYING;
-                return;
-            case FINISHED:
-                System.out.println("Restarting " + name + " from the start!");
-                currDuration = 0;
-                state = VideoState.PLAYING;
-                return;
-        }
+        state.onPlay();
     }
 
     public void pause() {
-        switch (state) {
-            case PLAYING:
-                System.out.println("Pausing " + name + "!");
-                state = VideoState.PAUSED;
-                return;
-            case PAUSED:
-                System.err.println("Error: " + name + " is already paused!");
-                return;
-            case FINISHED:
-                System.err.println("Error: Cannot pause a video that is already finished!");
-                return;
-        }
+        state.onPause();
     }
 }

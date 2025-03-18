@@ -11,13 +11,12 @@ public class PausedState implements VideoState {
 
     @Override
     public void onPlay() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPlay'");
+        System.out.println("Unpausing " + video.getName() + "!");
+        video.setState(new PlayingState(video));
     }
 
     @Override
     public void onPause() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPause'");
+        System.err.println("Error: " + video.getName() + " is already paused!");
     }
 }
