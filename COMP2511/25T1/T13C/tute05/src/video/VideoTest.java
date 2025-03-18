@@ -10,7 +10,7 @@ public class VideoTest {
         v.play(); // 2 seconds left
         v.pause(); // paused, 2 seconds left
         v.pause(); // error: already paused
-        v.play(); // unpause, 2 second left
+        v.play(); // unpause, 2 seconds left
         v.play(); // 1 second left
         v.play(); // video finishes
         v.pause(); // error: cannot pause finished video

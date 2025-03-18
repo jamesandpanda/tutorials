@@ -16,13 +16,14 @@ public class PlayingState implements VideoState {
             System.out.println(video.getName() + " has finished playing!");
             video.setState(new FinishedState(video));
         } else {
-            System.out.println("Playing " + name + "! There are " + (duration - currDuration) + " seconds remaining.");
+            System.out.println("Playing " + video.getName() + "! There are "
+                + (video.getDuration() - video.getCurrDuration()) + " seconds remaining.");
         }
     }
 
     @Override
     public void onPause() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPause'");
+        System.out.println("Pausing " + video.getName() + "!");
+        video.setState(new PausedState(video));
     }
 }
