@@ -11,8 +11,13 @@ public class PlayingState implements VideoState {
 
     @Override
     public void onPlay() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onPlay'");
+        video.incrCurrDuration();
+        if (video.getDuration() == video.getCurrDuration()) {
+            System.out.println(video.getName() + " has finished playing!");
+            video.setState(new FinishedState(video));
+        } else {
+            System.out.println("Playing " + name + "! There are " + (duration - currDuration) + " seconds remaining.");
+        }
     }
 
     @Override

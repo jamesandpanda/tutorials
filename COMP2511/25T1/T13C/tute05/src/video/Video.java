@@ -1,5 +1,7 @@
 package video;
 
+import video.states.*;
+
 public class Video {
     private String name;
     private int duration;
@@ -15,7 +17,7 @@ public class Video {
     public Video(String name, int duration) {
         this.name = name;
         this.duration = duration;
-        this.state = VideoState.PLAYING;
+        this.state = new PlayingState(this);
     }
 
     public int getDuration() {
@@ -26,7 +28,20 @@ public class Video {
         return currDuration;
     }
 
+    public void incrCurrDuration() {
+        currDuration += 1;
+    }
+
+    public void setState(VideoState state) {
+        this.state = state;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void play() {
+        state.onPlay();
         switch (state) {
             case PLAYING:
                 currDuration += 1;
@@ -50,17 +65,18 @@ public class Video {
     }
 
     public void pause() {
-        switch (state) {
-            case PLAYING:
-                System.out.println("Pausing " + name + "!");
-                state = VideoState.PAUSED;
-                return;
-            case PAUSED:
-                System.err.println("Error: " + name + " is already paused!");
-                return;
-            case FINISHED:
-                System.err.println("Error: Cannot pause a video that is already finished!");
-                return;
-        }
+        state.onPause();
+        // switch (state) {
+        //     case PLAYING:
+        //         System.out.println("Pausing " + name + "!");
+        //         state = VideoState.PAUSED;
+        //         return;
+        //     case PAUSED:
+        //         System.err.println("Error: " + name + " is already paused!");
+        //         return;
+        //     case FINISHED:
+        //         System.err.println("Error: Cannot pause a video that is already finished!");
+        //         return;
+        // }
     }
 }

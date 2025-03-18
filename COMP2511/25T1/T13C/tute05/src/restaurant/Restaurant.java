@@ -3,11 +3,13 @@ package restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
+import restaurant.strategies.*;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Restaurant {
-    private String chargingStrategy = "standard";
+    private ChargingStrategy chargingStrategy = new StandardStrategy();
     private String name;
     private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
@@ -22,40 +24,20 @@ public class Restaurant {
         }
     }
 
+    public void setStrategy(ChargingStrategy strategy) {
+        chargingStrategy = strategy;
+    }
+
     public double cost(List<Meal> order, String payee) {
-        switch (chargingStrategy) {
-            case "standard":
-                return order.stream().mapToDouble(meal -> meal.getCost()).sum();
-            case "holiday":
-                return order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
-            case "happyHour":
-                if (members.contains(payee)) {
-                    return order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
-                } else {
-                    return order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
-                }
-            default:
-                return 0;
-        }
+        boolean payeeIsMember = members.contains(payee);
+        return chargingStrategy.cost(order, payeeIsMember);
     }
 
     public void displayMenu() {
         System.out.println("Welcome to " + name + "!");
         System.out.println("========================");
 
-        double modifier = 0;
-        switch (chargingStrategy) {
-            case "standard":
-                modifier = 1;
-                break;
-            case "holiday":
-                modifier = 1.15;
-                break;
-            case "happyHour":
-                modifier = 0.7;
-                break;
-        }
-
+        double modifier = chargingStrategy.getModifier();
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
         }
@@ -67,6 +49,8 @@ public class Restaurant {
 
     public static void main(String[] args) {
         Restaurant r = new Restaurant("XS");
+        r.displayMenu();
+        r.setStrategy(new HolidayStrategy());
         r.displayMenu();
     }
 }
