@@ -17,6 +17,7 @@ public class PrizeDrawStrategy implements ChargingStrategy {
             return order.stream().mapToDouble(meal -> meal.getCost()).sum();
         }
     }
+
     @Override
     public double getModifier() {
         return 1.0;
