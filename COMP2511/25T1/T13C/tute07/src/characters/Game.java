@@ -14,8 +14,7 @@ public class Game {
             case "swordsman" -> CharacterFactory.createSwordsman();
             case "archer" -> CharacterFactory.createArcher();
             case "tank" -> CharacterFactory.createTank();
-            default ->
-                throw new IllegalArgumentException("Not a valid character");
+            default -> throw new IllegalArgumentException("Not a valid character");
         };
 
         System.out.println(String.format("Created a %s with %d attack, %d defence, %d speed and %d range",
