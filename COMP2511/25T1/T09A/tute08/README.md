@@ -75,3 +75,14 @@ Tokyo is leaving the bank, the balance is -1
 ```
 
 Use the Singleton Pattern to ensure that only one person can access the bank at a time. You can assume for simplicity's sake that only one access to *any* bank account can ever be made at a given time.
+
+## C. Decorator Pattern
+
+Imagine you are running a cafe, where customers can order a regular milk tea ($6.00) and optionally add the following toppings on top for an extra cost:
+- Pearls, costing $0.80
+- Lychee Jelly, costing $0.90
+- Milk Foam, costing $1.00
+
+After a customer makes their order, a receipt should be printed out detailing what exactly the customer ordered, and the total cost of their order.
+
+Creating concrete classes for each different type of combination like `MilkTeaWithPearls`, `MilkTeaWithPearlsAndLycheeJelly`, `MilkTeaWithLycheeJellyAndMilkFoam` would certainly get out of hand very quickly. Not to mention, customers should be able to order as many toppings as they would like, so there are actually infinite possibilities for the toppings a customer could want (ignoring how many would actually fit inside the cup!). Design a system in `src/milktea` that uses the Decorator Pattern to fulfill these requirements.
