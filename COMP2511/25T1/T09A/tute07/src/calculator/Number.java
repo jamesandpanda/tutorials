@@ -6,4 +6,8 @@ public class Number implements Expression {
     public Number(double number) {
         this.number = number;
     }
+
+    public double evaluate() {
+        return number;
+    }
 }
