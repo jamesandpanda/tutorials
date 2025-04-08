@@ -1,25 +1,29 @@
 package list;
 
-public class MyLinkedList {
-    protected int value;
-    protected MyLinkedList next;
+public class MyLinkedList<T> {
+    // primitive values: int, char, double
+    // Integer, Double
+    // ArrayList<Integer>
+    // MyLinkedList<Integer>
+    public T value;
+    public MyLinkedList<T> next;
 
-    public MyLinkedList(int value) {
+    public MyLinkedList(T value) {
         this.value = value;
     }
 
-    public void add(int value) {
-        MyLinkedList curr = this;
+    public void add(T value) {
+        MyLinkedList<T> curr = this;
         while (curr.next != null) {
             curr = curr.next;
         }
 
-        curr.next = new MyLinkedList(value);
+        curr.next = new MyLinkedList<T>(value);
     }
 
     public int size() {
         int size = 0;
-        MyLinkedList curr = this;
+        MyLinkedList<T> curr = this;
 
         while (curr != null) {
             ++size;
@@ -32,7 +36,7 @@ public class MyLinkedList {
     public void print() {
         System.out.print(this.value);
 
-        MyLinkedList curr = this.next;
+        MyLinkedList<T> curr = this.next;
         while (curr != null) {
             System.out.print(" " + curr.value);
             curr = curr.next;
@@ -41,7 +45,7 @@ public class MyLinkedList {
     }
 
     public static void main(String[] args) {
-        MyLinkedList ll = new MyLinkedList(4);
+        MyLinkedList<Integer> ll = new MyLinkedList<Integer>(4);
         ll.add(3);
         ll.add(1);
         ll.add(6);
@@ -49,5 +53,9 @@ public class MyLinkedList {
 
         ll.print();
         System.out.println("The size of the list is " + ll.size());
+
+        MyLinkedList<String> ll2 = new MyLinkedList<>("hello");
+        ll2.add("world");
+        ll2.print();
     }
 }
