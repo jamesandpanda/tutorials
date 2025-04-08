@@ -12,7 +12,6 @@ Implement an iterator for the `MyLinkedList` class which allows users to travers
 Inside `MySortedLinkedList.java`, there is a code for a subclass of the (original) version of `MyLinkedList` that maintains a sorted linked list by making sure that any new elements in the list are placed in order.
 
 - To enforce that your generic type `T` is either a class `A` or any **sub**classes of `A`, you can use the syntax `<T extends A>` (this also applies if `A` is an interface and you want some generic type that implements that interface).
-- To enforce that your generic type `T` is either a class `A` or any **super**classes of `A`, you can use the syntax `<T super A>`.
 
 Modify the code using an appropriate generic type bound so that the list can store values of any type that has a **well-defined ordering of its elements**.
 
