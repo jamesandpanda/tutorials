@@ -1,14 +1,7 @@
 package list;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-// ArrayList<Integer>
-// MyLinkedList<Integer> = new MyLinkedList<Integer>(1);
-// MyLinkedList<Integer> = new MyLinkedList<String>(1); WONT WORK
-// MyLinkedList<String>
-// ArrayList l
 public class MyLinkedList<T> implements Iterable<T> {
     public T value;
     public MyLinkedList<T> next;
@@ -73,7 +66,8 @@ public class MyLinkedList<T> implements Iterable<T> {
 
         // Iterator<Integer> iter = l.iterator();
         // while (iter.hasNext()) {
-        //      // logic here
+        //     Integer num = iter.next();
+        //     // logic here
         // }
 
         // Since the linked list is Iterable and we have provided our own iterator

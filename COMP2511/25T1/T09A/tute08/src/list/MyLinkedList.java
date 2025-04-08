@@ -1,10 +1,12 @@
 package list;
 
-public class MyLinkedList<T> {
-    // primitive values: int, char, double
-    // Integer, Double
-    // ArrayList<Integer>
-    // MyLinkedList<Integer>
+import java.util.Iterator;
+
+public class MyLinkedList<T> implements Iterable<T> {
+    // primitive values: int, char, double - these do not work when given as generic
+    // type parameters
+    // would have to use the object-wrapped versions like Integer, Double
+
     public T value;
     public MyLinkedList<T> next;
 
@@ -44,6 +46,11 @@ public class MyLinkedList<T> {
         System.out.println();
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new MyIterator<T>(this);
+    }
+
     public static void main(String[] args) {
         MyLinkedList<Integer> ll = new MyLinkedList<Integer>(4);
         ll.add(3);
@@ -54,8 +61,28 @@ public class MyLinkedList<T> {
         ll.print();
         System.out.println("The size of the list is " + ll.size());
 
-        MyLinkedList<String> ll2 = new MyLinkedList<>("hello");
-        ll2.add("world");
-        ll2.print();
+        // These two snippets of code are actually functionally identical - the
+        // 'for of' uses iterators behind the scenes. 
+        // for (Integer num : list) {
+        //     // some logic
+        // }
+
+        // Iterator<Integer> iter = list.iterator();
+        // while (iter.hasNext()) {
+        //     Integer num = iter.next();
+        //     // some logic
+        // }
+
+        Iterator<Integer> iter = ll.iterator();
+        while (iter.hasNext()) {
+            Integer num = iter.next();
+            System.out.println(num);
+        }
+
+        // Since the linked list is Iterable and we have provided our own iterator
+        // to the collection, we can use the 'for of' syntax.
+        for (Integer num : ll) {
+            System.out.println(num);
+        }
     }
 }
