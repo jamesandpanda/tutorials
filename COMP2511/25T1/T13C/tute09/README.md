@@ -1,11 +1,11 @@
 # Tutorial 09
 ## A. Visitor Pattern
-Before doing this exercise, run the example in `src/visitor` - what does the main program in `Visitor.java`, and why?
+Before doing this exercise, run the example in `src/visitor` - what does the main program in `Visitor.java` output, and why?
 
 In this scenario, we have `Computer`s, `Keyboard`s and `Mouse`s. We want to be able to convert each of these computer-related objects into JSON objects containing each of their respective fields, and create a corresponding `.json` file.
 
 One approach is to implement all of this logic in each of the respective computer component classes. However,
-- These methods would be fairly disconnected from the rest of the class methods that have to do with the actual functionality of the objects
+- These methods would be fairly disconnected from the rest of the class methods that have to do with the actual functionality of the objects.
 - While extending a system, we would like to modify as little as possible to prevent introducing bugs to existing code.
 
 Extend/modify the starter code to use the Visitor Pattern to provide this implementation separate from each of the component classes.
