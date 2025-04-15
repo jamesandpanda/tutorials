@@ -22,6 +22,13 @@ public class Train {
     }
 
     public static void main(String[] args) {
+        Train t = new TrainBuilder()
+            .addHighPoweredEngine()
+            .addStandardEngine()
+            .addCargoWagon()
+            .addPassengerWagon()
+            .createTrain();
 
+        System.out.println(t);
     }
 }

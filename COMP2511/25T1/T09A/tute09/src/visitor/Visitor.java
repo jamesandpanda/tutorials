@@ -20,6 +20,8 @@ public class Visitor {
         Chicken superChicken = new SuperChicken();
 
         Visitor v = new Visitor();
+        // The compiler uses the static type declared to determine which method
+        // is called - but we want polymorphic behaviour
         v.visit(chicken);
         v.visit(chickenJockey);
         v.visit(superChicken);

@@ -1,6 +1,6 @@
 package computer;
 
-public class Keyboard {
+public class Keyboard implements ComputerComponent {
     private String name;
     private int numKeys = 36;
 
@@ -14,5 +14,10 @@ public class Keyboard {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void accept(ComputerVisitor visitor) {
+        visitor.visit(this);
     }
 }
