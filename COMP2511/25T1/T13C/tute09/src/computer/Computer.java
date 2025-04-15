@@ -1,6 +1,6 @@
 package computer;
 
-public class Computer {
+public class Computer implements ComputerComponent {
     private String name;
     private int storage;
     private int ram;
@@ -21,5 +21,10 @@ public class Computer {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void accept(ComputerVisitor visitor) {
+        visitor.visit(this);
     }
 }

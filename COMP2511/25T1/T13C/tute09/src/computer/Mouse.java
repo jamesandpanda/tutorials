@@ -1,6 +1,6 @@
 package computer;
 
-public class Mouse {
+public class Mouse implements ComputerComponent {
     private String name;
     private int dpi;
 
@@ -15,5 +15,10 @@ public class Mouse {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void accept(ComputerVisitor visitor) {
+        visitor.visit(this);
     }
 }
