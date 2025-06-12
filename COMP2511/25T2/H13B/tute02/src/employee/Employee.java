@@ -5,10 +5,9 @@ public class Employee {
     private int salary;
 
     /**
-     * Creates an Employee with the given name and salary.
      * 
-     * @param name   The full name of the employee.
-     * @param salary The employee's yearly salary in dollars.
+     * @param name
+     * @param salary
      */
     public Employee(String name, int salary) {
         this.name = name;
@@ -16,9 +15,8 @@ public class Employee {
     }
 
     /**
-     * Returns the employee's name
      * 
-     * @return The full name of the employee.
+     * @return the full name of the employee
      */
     public String getName() {
         return name;
@@ -72,12 +70,12 @@ public class Employee {
 
     public static void main(String[] args) {
         Employee e = new Employee("Bob", 2);
-        // System.out.println(e.toString());
+        System.out.println(e.toString());
 
         // Manager m = new Manager("Alice", 20000000);
         // System.out.println(m.toString());
 
-        Employee e2 = new Employee("Bob", 2);
-        System.out.println(e.equals(e2));
+        // Employee e2 = new Employee("Bob", 2);
+        // System.out.println(e.equals(e2));
     }
 }
