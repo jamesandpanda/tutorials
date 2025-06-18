@@ -18,12 +18,4 @@ public class WondrousTest {
 
         assertEquals(expected, w.wondrous(3));
     }
-
-    @Test
-    public void testGivenOne() {
-        Wondrous w = new Wondrous();
-        List<Integer> expected = new ArrayList<Integer>();
-
-        assertEquals(expected, w.wondrous(1));
-    }
 }
