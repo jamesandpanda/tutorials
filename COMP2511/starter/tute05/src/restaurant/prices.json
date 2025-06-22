@@ -1,6 +1,6 @@
 [
-    {"meal": "avocado on toast", "cost": 20},
-    {"meal": "bacon and eggs", "cost": 15},
-    {"meal": "granola", "cost": 12},
-    {"meal": "brekky burger", "cost": 13}
+    {"meal": "Avocado on Toast", "cost": 20},
+    {"meal": "Bacon and Eggs", "cost": 15},
+    {"meal": "Granola", "cost": 12},
+    {"meal": "Brekky Burger", "cost": 13}
 ]

@@ -16,57 +16,43 @@ public class Restaurant {
         this.name = name;
         JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
 
-        for (Object Meal : menuJSON) {
-            JSONObject jsonMeal = (JSONObject) Meal;
+        for (Object meal : menuJSON) {
+            JSONObject jsonMeal = (JSONObject) meal;
             menu.add(new Meal(jsonMeal.getString("meal"), jsonMeal.getInt("cost")));
         }
     }
 
     public double cost(List<Meal> order, String payee) {
-        switch (chargingStrategy) {
-            case "standard":
-                return order.stream().mapToDouble(meal -> meal.getCost()).sum();
-            case "holiday":
-                return order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
-            case "happyHour":
+        return switch (chargingStrategy) {
+            case "standard" -> order.stream().mapToDouble(meal -> meal.getCost()).sum();
+            case "holiday" -> order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
+            case "happyHour" -> {
                 if (members.contains(payee)) {
-                    return order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
+                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
                 } else {
-                    return order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
+                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
                 }
-            default:
-                return 0;
-        }
+            }
+            default -> 0;
+        };
     }
 
     public void displayMenu() {
+        double modifier = switch (chargingStrategy) {
+            case "standard" -> 1;
+            case "holiday" -> 1.15;
+            case "happyHour" -> 0.7;
+            default -> 0;
+        };
+
         System.out.println("Welcome to " + name + "!");
-        System.out.println("========================");
-
-        double modifier = 0;
-        switch (chargingStrategy) {
-            case "standard":
-                modifier = 1;
-                break;
-            case "holiday":
-                modifier = 1.15;
-                break;
-            case "happyHour":
-                modifier = 0.7;
-                break;
-        }
-
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
         }
     }
 
-    public void addMember(String member) {
-        members.add(member);
-    }
-
     public static void main(String[] args) {
-        Restaurant r = new Restaurant("XS");
+        Restaurant r = new Restaurant("2511 Cafe");
         r.displayMenu();
     }
 }

@@ -11,8 +11,7 @@ public interface ChargingStrategy {
     public double cost(List<Meal> order, boolean payeeIsMember);
 
     /**
-     * Modifying factor of charges for standard customers.
+     * Modifying factor of charges for customers.
      */
-    public double getModifier();
+    public double getModifier(boolean payeeIsMember);
 }
-
