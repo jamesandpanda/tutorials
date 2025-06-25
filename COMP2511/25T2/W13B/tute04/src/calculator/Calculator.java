@@ -1,6 +1,7 @@
 package calculator;
 
-import calculator.expressions.Expression;
+import calculator.expressions.*;
+import calculator.expressions.Number;
 
 public class Calculator {
     private Expression expr;
@@ -10,11 +11,11 @@ public class Calculator {
     }
 
     public double evaluate() {
-        // TODO: Evaluate expression stored in calculator
-        return 0;
+        return expr.evaluate();
     }
 
     public static void main(String[] args) {
-        
+        Calculator c = new Calculator(new Subtraction(new Number(42), new Multiplication(new Number(8), new Number(5))));
+        System.out.println(c.evaluate());
     }
 }
