@@ -20,7 +20,10 @@ public class Trainer {
 
     public LocalDate bookTraining(String employee, List<LocalDate> availability) {
         for (Seminar seminar : seminars) {
-            seminar.bookTraining(employee, availability);
+            LocalDate bookedTime = seminar.bookTraining(employee, availability);
+            if (bookedTime != null) {
+                return bookedTime;
+            }
         }
 
         return null;
