@@ -8,7 +8,10 @@ public class TrainingSystem {
 
     public LocalDate bookTraining(String employee, List<LocalDate> availability) {
         for (Trainer trainer : trainers) {
-            trainer.bookTraining(employee, availability);
+            LocalDate bookedDate = trainer.bookTraining(employee, availability);
+            if (bookedDate != null) {
+                return bookedDate;
+            }
         }
 
         return null;
