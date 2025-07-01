@@ -8,10 +8,10 @@ public interface ChargingStrategy {
     /**
      * The cost of a meal.
      */
-    public double cost(List<Meal> order, boolean payeeIsMember);
+    public double cost(List<Meal> order, boolean isMember);
 
     /**
      * Modifying factor of charges for customers.
      */
-    public double getModifier(boolean payeeIsMember);
+    public double getModifier(boolean isMember);
 }

@@ -4,7 +4,7 @@ public class Meal {
     private String name;
     private double cost;
 
-    public Meal(String name, int cost) {
+    public Meal(String name, double cost) {
         this.name = name;
         this.cost = cost;
     }

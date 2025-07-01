@@ -3,31 +3,44 @@ package restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 public class Restaurant {
     private String chargingStrategy = "standard";
     private String name;
-    private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
+    private List<Meal> menu = new ArrayList<Meal>();
 
-    public Restaurant(String name) {
+    public Restaurant(String name, List<Meal> menu) {
         this.name = name;
-        JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
-
-        for (Object meal : menuJSON) {
-            JSONObject jsonMeal = (JSONObject) meal;
-            menu.add(new Meal(jsonMeal.getString("meal"), jsonMeal.getInt("cost")));
-        }
+        this.menu = menu;
     }
 
-    public double cost(List<Meal> order, String payee) {
-        return switch (chargingStrategy) {
+    public void displayOrder(List<Meal> order, String customer) {
+        System.out.println("========================");
+        System.out.println("Order for " + customer + ":");
+        System.out.println("========================");
+
+        double modifier = switch (chargingStrategy) {
+            case "standard" -> 1;
+            case "holiday" -> 1.15;
+            case "happyHour" -> {
+                if (members.contains(customer)) {
+                    yield 0.6;
+                } else {
+                    yield 0.7;
+                }
+            }
+            default -> 0;
+        };
+
+        for (Meal meal : order) {
+            System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
+        }
+
+        double cost = switch (chargingStrategy) {
             case "standard" -> order.stream().mapToDouble(meal -> meal.getCost()).sum();
             case "holiday" -> order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
             case "happyHour" -> {
-                if (members.contains(payee)) {
+                if (members.contains(customer)) {
                     yield order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
                 } else {
                     yield order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
@@ -35,9 +48,15 @@ public class Restaurant {
             }
             default -> 0;
         };
+
+        System.out.println("Total: " + "$" + cost);
     }
 
     public void displayMenu() {
+        System.out.println("========================");
+        System.out.println("Welcome to " + name + "!");
+        System.out.println("========================");
+
         double modifier = switch (chargingStrategy) {
             case "standard" -> 1;
             case "holiday" -> 1.15;
@@ -45,14 +64,38 @@ public class Restaurant {
             default -> 0;
         };
 
-        System.out.println("Welcome to " + name + "!");
         for (Meal meal : menu) {
-            System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
+            System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
         }
     }
 
+    public void addMember(String member) {
+        members.add(member);
+    }
+
+    public void setChargingStrategy(String chargingStrategy) {
+        this.chargingStrategy = chargingStrategy;
+    }
+
     public static void main(String[] args) {
-        Restaurant r = new Restaurant("2511 Cafe");
+        List<Meal> menu = List.of(
+            new Meal("Avocado on Toast", 20),
+            new Meal("Strawberry Matcha", 10),
+            new Meal("Dubai Chocolate Strawberry Cup", 50),
+            new Meal("Gurt Yogurt", 100),
+            new Meal("Labubu Cake", 1000));
+        Restaurant r = new Restaurant("2511 Cafe", menu);
         r.displayMenu();
+
+        List<Meal> order = List.of(
+            new Meal("Strawberry Matcha", 10),
+            new Meal("Labubu Cake", 1000));
+        r.displayOrder(order, "James");
+
+        // r.setChargingStrategy("happyHour");
+        // r.displayOrder(order, "James");
+
+        // r.addMember("James");
+        // r.displayOrder(order, "James");
     }
 }

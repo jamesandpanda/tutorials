@@ -8,12 +8,14 @@ public class HolidayStrategy implements ChargingStrategy {
     private static final double MODIFIER = 1.15;
 
     @Override
-    public double cost(List<Meal> order, boolean payeeIsMember) {
-        return order.stream().mapToDouble(meal -> meal.getCost() * MODIFIER).sum();
+    public double cost(List<Meal> order, boolean isMember) {
+        // TODO
+        return 0;
     }
 
     @Override
-    public double getModifier(boolean payeeIsMember) {
-        return MODIFIER;
+    public double getModifier(boolean isMember) {
+        // TODO
+        return 0;
     }
 }
