@@ -23,7 +23,7 @@ public class YouTuber implements Publisher {
             s.addToWatchLater(v);
         }
 
-        System.out.println("New video " + name + "has been published!");
+        System.out.println("New video " + name + " has been published!");
     }
 
     @Override
