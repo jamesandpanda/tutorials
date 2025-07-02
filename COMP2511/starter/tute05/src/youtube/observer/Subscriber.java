@@ -1,6 +1,6 @@
 package youtube.observer;
 
 public interface Subscriber {
-    // TODO - Change this method signature according to the requirements
+    // TODO: What is the method that the subject should call to notify its observers?
     public void update();
 }

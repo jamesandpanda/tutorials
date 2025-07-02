@@ -8,7 +8,7 @@ public class StandardStrategy implements ChargingStrategy {
     private static final double MODIFIER = 1;
 
     @Override
-    public double cost(List<Meal> order, boolean payeeIsMember) {
+    public double cost(List<Meal> order, boolean isMember) {
         // TODO
         return 0;
     }
