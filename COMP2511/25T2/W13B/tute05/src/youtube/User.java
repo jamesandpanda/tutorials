@@ -16,6 +16,6 @@ public class User implements Subscriber {
     @Override
     public void addToWatchLater(Video v) {
         watchLater.add(v);
-        System.out.println("User " + name + "has just been notified that " + v + " has been uploaded");
+        System.out.println("User " + name + " has just been notified that " + v + " has been uploaded");
     }
 }

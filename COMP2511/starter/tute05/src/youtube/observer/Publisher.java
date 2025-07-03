@@ -1,10 +1,10 @@
 package youtube.observer;
 
 public interface Publisher {
-    public void addSubscriber();
+    public void addSubscriber(Subscriber s);
 
-    public void removeSubscriber();
+    public void removeSubscriber(Subscriber s);
 
-    // TODO - Change this method signature according to the requirements
+    // TODO: What is the method that the observer will be waiting on?
     public void notifySubscribers();
 }
