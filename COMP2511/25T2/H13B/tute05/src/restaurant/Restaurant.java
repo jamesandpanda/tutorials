@@ -69,8 +69,5 @@ public class Restaurant {
 
         r.setChargingStrategy(new HappyHourStrategy());
         r.displayOrder(order, "James");
-
-        // r.addMember("James");
-        // r.displayOrder(order, "James");
     }
 }
