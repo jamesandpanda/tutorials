@@ -10,13 +10,15 @@ public class HappyHourStrategy implements ChargingStrategy {
 
     @Override
     public double cost(List<Meal> order, boolean isMember) {
-        // TODO
-        return 0;
+        return order.stream().mapToDouble(meal -> meal.getCost() * getModifier(isMember)).sum();
     }
 
     @Override
     public double getModifier(boolean isMember) {
-        // TODO
-        return 0;
+        if (isMember) {
+            return MEMBER_MODIFIER;
+        } else {
+            return MODIFIER;
+        }
     }
 }
