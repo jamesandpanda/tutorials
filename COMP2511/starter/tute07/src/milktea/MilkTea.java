@@ -1,4 +1,4 @@
-package cafe;
+package milktea;
 
 public class MilkTea {
     public String getDescription() {
