@@ -30,11 +30,11 @@ public class App {
                 switch (university) {
                     case "unsw":
                         s = new UNSWStudent(nextUnswId++, new Random().nextInt(1, 11));
-                        System.out.println("> Enrolled " + s);
+                        System.out.println("> Registered " + s);
                         break;
                     case "usyd":
                         s = new USYDStudent(nextUsydId++, new Random().nextInt(1, 11));
-                        System.out.println("> Enrolled " + s);
+                        System.out.println("> Registered " + s);
                         break;
                     default:
                         throw new IllegalArgumentException("invalid university");
@@ -43,11 +43,11 @@ public class App {
                 switch (university) {
                     case "unsw":
                         l = new UNSWLecturer(nextUnswId++, 20);
-                        System.out.println("> Enrolled " + l);
+                        System.out.println("> Registered " + l);
                         break;
                     case "usyd":
                         l = new USYDLecturer(nextUsydId++, 15);
-                        System.out.println("> Enrolled " + l);
+                        System.out.println("> Registered " + l);
                         break;
                     default:
                         throw new IllegalArgumentException("invalid university");
