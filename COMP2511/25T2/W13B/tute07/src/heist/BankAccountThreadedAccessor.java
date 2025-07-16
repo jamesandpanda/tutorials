@@ -21,7 +21,7 @@ public class BankAccountThreadedAccessor extends Thread {
 
     @Override
     public void run() {
-        BankAccountAccessor accessor = new BankAccountAccessor(account);
+        BankAccountAccessor accessor = BankAccountAccessor.getInstance(account);
         accessor.withdraw(user, numberOfWithdrawals, amountPerWithdrawal);
     }
 
