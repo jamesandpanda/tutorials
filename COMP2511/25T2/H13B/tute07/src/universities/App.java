@@ -3,55 +3,30 @@ package universities;
 import java.util.Random;
 import java.util.Scanner;
 
-import universities.unsw.*;
-import universities.usyd.*;
+import universities.factories.*;
 
 public class App {
-    private static int nextUnswId = 5000000;
-    private static int nextUsydId = 100000000;
-    private static String university = "unsw";
+    private static UniFactory factory = new UNSWFactory();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Student s;
-        Lecturer l;
 
         System.out.println("Options: 'unsw', 'usyd', 'student', 'lecturer'");
         while (sc.hasNextLine()) {
             String input = sc.nextLine().toString();
 
             if (input.equals("unsw")) {
-                university = "unsw";
+                factory = new UNSWFactory();
                 System.out.println("> Changed university to UNSW");
             } else if (input.equals("usyd")) {
-                university = "usyd";
+                factory = new USYDFactory();
                 System.out.println("> Changed university to USYD");
             } else if (input.equals("student")) {
-                switch (university) {
-                    case "unsw":
-                        s = new UNSWStudent(nextUnswId++, new Random().nextInt(1, 11));
-                        System.out.println("> Registered " + s);
-                        break;
-                    case "usyd":
-                        s = new USYDStudent(nextUsydId++, new Random().nextInt(1, 11));
-                        System.out.println("> Registered " + s);
-                        break;
-                    default:
-                        throw new IllegalArgumentException("invalid university");
-                }
+                Student s = factory.createStudent();
+                System.out.println("> Enrolled " + s);
             } else if (input.equals("lecturer")) {
-                switch (university) {
-                    case "unsw":
-                        l = new UNSWLecturer(nextUnswId++, 20);
-                        System.out.println("> Registered " + l);
-                        break;
-                    case "usyd":
-                        l = new USYDLecturer(nextUsydId++, 15);
-                        System.out.println("> Registered " + l);
-                        break;
-                    default:
-                        throw new IllegalArgumentException("invalid university");
-                }
+                Lecturer l = factory.createLecturer();
+                System.out.println("> Registered " + l);
             } else {
                 System.out.println("> Unrecognised input");
             }
