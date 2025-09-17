@@ -1,5 +1,7 @@
 package example;
 
 public class HelloWorld {
-    // TODO: Write a main method that prints out "Hello World!"
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
 }
