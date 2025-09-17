@@ -18,7 +18,7 @@ public class Sum {
         //     sum += Integer.parseInt(numbers[i]);
         // }
 
-        // "for-each"/"for-of" loop - PREFERRED!
+        // "enhanced for loop"/"for-each" loop - PREFERRED!
         for (String s : numbers) {
             // We need to convert the string into its integer representation
             // Since "1" is not the same as 1
