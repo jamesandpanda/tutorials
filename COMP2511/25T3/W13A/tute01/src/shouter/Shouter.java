@@ -11,7 +11,7 @@ public class Shouter {
         this.message = message;
     }
 
-    // This is an *instance field* - if we have an object of type Shouter, we can
+    // This is an *instance method* - if we have an object of type Shouter, we can
     // invoke this method.
     public void shout() {
         System.out.println(message.toUpperCase());
