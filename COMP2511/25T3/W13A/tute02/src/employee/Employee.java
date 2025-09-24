@@ -50,4 +50,32 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " Name: " + name + ", Salary: " + salary;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj == null) {
+            return false;
+        } else if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Employee other = (Employee) obj;
+        return name.equals(other.name) && salary == other.salary;
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Alex", 1);
+        System.out.println(e1.toString());
+
+        String name = new String("Alex");
+        Employee e2 = new Employee(name, 1);
+        System.out.println(e1.equals(e2));
+    }
 }
