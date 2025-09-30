@@ -2,7 +2,7 @@ package languages;
 
 import java.util.List;
 
-public class Student {
+public abstract class Student {
     private String name;
 
     public Student(String name) {
@@ -13,7 +13,8 @@ public class Student {
         return name;
     }
 
-    // TODO: Improve this code!
+    public abstract void sayHi();
+
     public static void main(String[] args) {
         Student a = new ChineseStudent("Alice");
         Student b = new EnglishStudent("Bob");
@@ -23,16 +24,7 @@ public class Student {
         List<Student> students = List.of(a, b, c, d);
 
         for (Student s : students) {
-            if (s instanceof ChineseStudent) {
-                System.out.println(s.getName() + " says: 你好!");
-            } else if (s instanceof EnglishStudent) {
-                System.out.println(s.getName() + " says: Hello!");
-            } else if (s instanceof FrenchStudent) {
-                System.out.println(s.getName() + " says: Bonjour!");
-            } else if (s instanceof SpanishStudent) {
-                System.out.println(s.getName() + " says: ¡Hola!");
-            }
-            // and so on and so forth...
+            s.sayHi();
         }
     }
 }
