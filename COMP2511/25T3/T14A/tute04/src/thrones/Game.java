@@ -3,7 +3,6 @@ package thrones;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Random;
 
 public class Game {
     private List<Character> characters = new ArrayList<Character>();
@@ -38,13 +37,11 @@ public class Game {
     }
 
     public static void main(String[] args) {
-        // Replace constructors below with factory pattern
         Game game = new Game();
-        Random r = new Random(System.currentTimeMillis());
 
-        game.addCharacter(new King(r.nextInt(5), r.nextInt(5)));
-        game.addCharacter(new Dragon(r.nextInt(5), r.nextInt(5)));
-        game.addCharacter(new Queen(r.nextInt(5), r.nextInt(5)));
+        game.addCharacter(CharacterFactory.createKing());
+        game.addCharacter(CharacterFactory.createDragon());
+        game.addCharacter(CharacterFactory.createQueen());
         game.play();
     }
 }

@@ -1,5 +1,6 @@
 package unsw.training;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -15,5 +16,16 @@ public class Trainer {
 
     public List<Seminar> getSeminars() {
         return seminars;
+    }
+
+    public LocalDate bookTraining(String employee, List<LocalDate> availabilities) {
+        for (Seminar seminar : seminars) {
+            LocalDate result = seminar.bookTraining(employee, availabilities);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
     }
 }
