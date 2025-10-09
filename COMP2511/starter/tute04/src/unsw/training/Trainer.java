@@ -9,9 +9,11 @@ import java.util.List;
  */
 public class Trainer {
     private String name;
-    private String room;
-
     private List<Seminar> seminars;
+
+    public String getName() {
+        return name;
+    }
 
     public List<Seminar> getSeminars() {
         return seminars;
