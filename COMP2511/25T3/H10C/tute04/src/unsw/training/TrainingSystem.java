@@ -6,18 +6,14 @@ import java.util.List;
 public class TrainingSystem {
     private List<Trainer> trainers;
 
-    public LocalDate bookTraining(String employee, List<LocalDate> availability) {
+    public LocalDate bookTraining(String employee, List<LocalDate> availabilities) {
         for (Trainer trainer : trainers) {
-            for (Seminar seminar : trainer.getSeminars()) {
-                for (LocalDate available : availability) {
-                    if (seminar.getStart().equals(available) &&
-                            seminar.getAttendees().size() < 10) {
-                        seminar.getAttendees().add(employee);
-                        return available;
-                    }
-                }
+            LocalDate result = trainer.bookTraining(employee, availabilities);
+            if (result != null) {
+                return result;
             }
         }
+
         return null;
     }
 }
