@@ -3,8 +3,10 @@ package restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
+import restaurant.strategies.*;
+
 public class Restaurant {
-    private String chargingStrategy = "standard";
+    private ChargingStrategy chargingStrategy = new StandardStrategy();
     private String name;
     private List<String> members = new ArrayList<String>();
     private List<Meal> menu = new ArrayList<Meal>();
@@ -19,36 +21,13 @@ public class Restaurant {
         System.out.println("Order for " + customer + ":");
         System.out.println("========================");
 
-        double modifier = switch (chargingStrategy) {
-            case "standard" -> 1;
-            case "holiday" -> 1.15;
-            case "happyHour" -> {
-                if (members.contains(customer)) {
-                    yield 0.6;
-                } else {
-                    yield 0.7;
-                }
-            }
-            default -> 0;
-        };
+        double modifier = chargingStrategy.getModifier(members.contains(customer));
 
         for (Meal meal : order) {
             System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
         }
 
-        double cost = switch (chargingStrategy) {
-            case "standard" -> order.stream().mapToDouble(meal -> meal.getCost()).sum();
-            case "holiday" -> order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
-            case "happyHour" -> {
-                if (members.contains(customer)) {
-                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
-                } else {
-                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
-                }
-            }
-            default -> 0;
-        };
-
+        double cost = chargingStrategy.cost(order, members.contains(customer));
         System.out.println("Total: " + "$" + cost);
     }
 
@@ -57,13 +36,7 @@ public class Restaurant {
         System.out.println("Welcome to " + name + "!");
         System.out.println("========================");
 
-        double modifier = switch (chargingStrategy) {
-            case "standard" -> 1;
-            case "holiday" -> 1.15;
-            case "happyHour" -> 0.7;
-            default -> 0;
-        };
-
+        double modifier = chargingStrategy.getModifier(false);
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
         }
@@ -73,7 +46,7 @@ public class Restaurant {
         members.add(member);
     }
 
-    public void setChargingStrategy(String chargingStrategy) {
+    public void setChargingStrategy(ChargingStrategy chargingStrategy) {
         this.chargingStrategy = chargingStrategy;
     }
 
@@ -92,10 +65,15 @@ public class Restaurant {
             new Meal("Labubu Cake", 1000));
         r.displayOrder(order, "James");
 
-        // r.setChargingStrategy("happyHour");
-        // r.displayOrder(order, "James");
+        r.setChargingStrategy(new HappyHourStrategy());
+        r.displayOrder(order, "James");
 
-        // r.addMember("James");
-        // r.displayOrder(order, "James");
+        r.addMember("James");
+        r.displayOrder(order, "James");
+
+        r.setChargingStrategy(new PrizeDrawStrategy());
+        r.displayOrder(order, "James");
+
+        r.displayOrder(order, "James");
     }
 }
