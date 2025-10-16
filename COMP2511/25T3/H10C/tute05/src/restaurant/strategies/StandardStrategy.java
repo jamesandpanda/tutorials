@@ -9,13 +9,11 @@ public class StandardStrategy implements ChargingStrategy {
 
     @Override
     public double cost(List<Meal> order, boolean isMember) {
-        // TODO
-        return 0;
+        return order.stream().mapToDouble(m -> m.getCost()).sum();
     }
 
     @Override
     public double getModifier(boolean isMember) {
-        // TODO
-        return 0;
+        return MODIFIER;
     }
 }
