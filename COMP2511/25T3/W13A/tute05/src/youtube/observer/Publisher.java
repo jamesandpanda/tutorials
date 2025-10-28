@@ -5,6 +5,5 @@ public interface Publisher {
 
     public void removeSubscriber(Subscriber s);
 
-    // TODO: What is the method that the observer will be waiting on?
-    public void notifySubscribers();
+    public void createVideo(String name);
 }
