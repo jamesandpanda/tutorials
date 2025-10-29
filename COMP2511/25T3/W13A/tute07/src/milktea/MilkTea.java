@@ -1,6 +1,6 @@
 package milktea;
 
-public class MilkTea {
+public class MilkTea implements MenuItem {
     public String getDescription() {
         return "Milk Tea";
     }
