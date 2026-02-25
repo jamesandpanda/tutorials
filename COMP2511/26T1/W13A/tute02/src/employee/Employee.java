@@ -5,10 +5,10 @@ public class Employee {
     private int salary;
 
     /**
-     * Creates an Employee with the given name and salary.
-     * 
-     * @param name   The full name of the employee.
-     * @param salary The employee's yearly salary in dollars.
+     * ADD YOUR DESCRIPTION OF THE METHOD HERE
+     *
+     * @param name - the full name of the employee
+     * @param salary - the salary of the employee in AUD
      */
     public Employee(String name, int salary) {
         this.name = name;
@@ -49,5 +49,36 @@ public class Employee {
      */
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " name: " +
+            name + " salary: " + salary;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj == null) {
+            return false;
+        } else if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Employee oth = (Employee) obj;
+        return salary == oth.salary && name.equals(oth.name);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee("Bob", 0);
+        System.out.println(e.toString());
+
+        // Manager m = new Manager("Alice", 100000);
+        // System.out.println(m.toString());
+
+        Employee e2 = new Employee("Bob", 0);
+        System.err.println(e.equals(e2));
     }
 }
