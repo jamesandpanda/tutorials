@@ -18,6 +18,9 @@ public class WondrousTest {
         Wondrous w = new Wondrous();
         List<Integer> expected = new ArrayList<Integer>(Arrays.asList(3, 10, 5, 16, 8, 4, 2, 1));
         
+        // assertDoesNotThrow is required to call methods that could potentially
+        // throw checked exceptions
+        // think of this argument as a code block that actually gets run
         assertDoesNotThrow(() -> {
             assertEquals(expected, w.wondrous(3));
         });

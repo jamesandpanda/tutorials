@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wondrous {
-    private final int MY_MAGIC_NUMBER = 42;
-
+    // WondrousException is the exception that we defined ourselves
+    // it is a checked exception, so "throws WondrousException" must be included in the
+    // method signature
     public List<Integer> wondrous(int start) throws WondrousException {
         if (start <= 0) {
-            // IllegalArgumentException
             throw new WondrousException("start number must be >= 1");
         } else if (start == 1) {
             return new ArrayList<Integer>();
@@ -33,6 +33,10 @@ public class Wondrous {
     public static void main(String[] args) {
         Wondrous w = new Wondrous();
 
+        // we need to wrap any code that throws an exception in a "try" block
+        // if an exception gets thrown, execution moves to the "catch" block
+        // the program can still continue even if an exception gets thrown as long
+        // as it is caught
         try {
             w.wondrous(0);
         } catch (Exception e) {
