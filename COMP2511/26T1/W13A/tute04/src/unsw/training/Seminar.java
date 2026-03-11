@@ -16,7 +16,11 @@ public class Seminar {
         return start;
     }
 
-    public List<String> getAttendees() {
-        return attendees;
+    public void addAttendees(String employee) {
+        attendees.add(employee);
+    }
+
+    public boolean canTakeEmployee(LocalDate availability) {
+        return start.equals(availability) && attendees.size() < 10;
     }
 }

@@ -8,4 +8,9 @@ public class Subtraction implements Expression {
         this.expr1 = expr1;
         this.expr2 = expr2;
     }
+
+    @Override
+    public double evaluate() {
+        return expr1.evaluate() - expr2.evaluate();
+    }
 }
