@@ -1,8 +1,11 @@
 package myunsw;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MyUNSW {
+    private static List<Student> students = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("Choose a program to enrol a new student into.");
@@ -15,7 +18,7 @@ public class MyUNSW {
             if (!StudentFactory.PROGRAMS.containsKey(program)) {
                 System.out.println("Invalid program given.");
             } else {
-                Student s = StudentFactory.createStudent(program);
+                students.add(StudentFactory.createStudent(program));
             }
         }
 
