@@ -5,16 +5,18 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        List<String> strings = List.of("1", "2", "3", "4", "5");
-        for (String string : strings) {
-            System.out.println(string);
+        // Task 1: Print out these words using forEach()
+        List<String> words = List.of("hello", "comp2511", "streams");
+
+        // Task 2: Re-write the parsing logic using streams
+        List<String> numStrings = List.of("1", "2", "2", "3", "3", "4", "5");
+        List<Integer> nums = new ArrayList<Integer>();
+        for (String num : numStrings) {
+            nums.add(Integer.parseInt(num));
         }
 
-        List<String> strings2 = List.of("1", "2", "3", "4", "5");
-        List<Integer> ints = new ArrayList<Integer>();
-        for (String string : strings2) {
-            ints.add(Integer.parseInt(string));
-        }
-        System.out.println(ints);
+        // Task 3: Find the sum and product of the above numbers using streams
+
+        // Task 4: Print out the list of nums without any duplicates using streams
     }
 }

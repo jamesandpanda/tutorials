@@ -1,6 +1,6 @@
 package youtube;
 
-public class YoutubeTest {
+public class YouTube {
     public static void main(String[] args) {
         YouTuber y = new YouTuber("COMP2511 UNSW CSE");
         User u1 = new User("COMP2511Fan5");
