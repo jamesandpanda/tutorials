@@ -1,6 +1,8 @@
 package youtube.observer;
 
+import youtube.Video;
+
 public interface Subscriber {
-    // TODO: What is the method that the subject should call to notify its observers?
-    public void update();
+    // What is the method that the subject should call to notify its observers?
+    public void addToWatchLater(Video v);
 }
