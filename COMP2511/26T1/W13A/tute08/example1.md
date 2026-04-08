@@ -9,7 +9,7 @@ sequenceDiagram
     activate Browser
     Browser-->>User: Display the Login page
 
-    User->>Browser: Enter login details
+    User->>Browser: Enter correct login details
     Browser->>AuthenticationService: login(username, password)
     activate AuthenticationService
     AuthenticationService->>Database: Check login details
