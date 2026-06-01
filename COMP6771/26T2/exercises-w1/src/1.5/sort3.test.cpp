@@ -2,5 +2,5 @@
 #include <catch2/catch.hpp>
 
 TEST_CASE("failure is not an option") {
-    REQUIRE(false); // oops
+	REQUIRE(false); // oops
 }
