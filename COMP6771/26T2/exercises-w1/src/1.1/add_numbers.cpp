@@ -8,6 +8,7 @@ int main(void) {
 
 	std::cout << "Please enter two numbers: ";
 
+	// if either scan didn't work (e.g. user inputs "hi" for i)
 	if (not (std::cin >> i) or not(std::cin >> j)) {
 		std::cout << "Something went wrong while loading an integer, bailing...\n";
 		return -1;

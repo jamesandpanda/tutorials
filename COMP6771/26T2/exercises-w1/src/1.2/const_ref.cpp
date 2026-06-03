@@ -15,6 +15,7 @@ int main(void) {
 }
 
 // Auto
+// works
 static auto fn_1() -> void {
 	auto i = 3;
 	i = 4;
@@ -22,6 +23,7 @@ static auto fn_1() -> void {
 }
 
 // Auto and Const
+// doesn't work because j is const, so it cannot be modified
 static auto fn_2() -> void {
 	auto const j = 5;
 	--j;
@@ -29,6 +31,7 @@ static auto fn_2() -> void {
 }
 
 // Reference
+// works
 static auto fn_3() -> void {
 	auto age = 18;
 	auto& my_age = age;
@@ -37,6 +40,8 @@ static auto fn_3() -> void {
 }
 
 // Const and Reference
+// doesn't work because my_age is a const ref, and the original value cannot be
+// modified using const refs
 static auto fn_4() -> void {
 	auto age = 21;
 	const auto& my_age = age;
