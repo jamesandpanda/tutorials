@@ -4,6 +4,8 @@
 auto main(void) -> int {
     auto v = std::vector<int>{1, 2, 3, 4};
 
+    // you can dereference iterators just like pointers
+    // to get the value that it is "looking" at
     auto iter = v.begin();
     std::cout << *iter << '\n';
 
