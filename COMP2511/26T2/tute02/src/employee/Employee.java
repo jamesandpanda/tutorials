@@ -16,9 +16,9 @@ public class Employee {
     }
 
     /**
-     * Returns the employee's name
-     * 
-     * @return The full name of the employee.
+     * Returns the employee's full name.
+     *
+     * @return the employee's full name.
      */
     public String getName() {
         return name;
@@ -49,5 +49,31 @@ public class Employee {
      */
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " Name: " + name + ", Salary: " + salary;
+    }
+
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        } else if (other == null) {
+            return false;
+        } else if (getClass() != other.getClass()) {
+            return false;
+        }
+
+        Employee e = (Employee) other;
+        return name.equals(e.name) && salary == e.salary;
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee("James", 0);
+        Employee e2 = new Employee("James", 0);
+
+        System.out.println(e1.toString());
+        System.out.println(e1.equals(e2));
     }
 }
