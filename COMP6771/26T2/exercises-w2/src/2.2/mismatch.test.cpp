@@ -23,6 +23,12 @@ TEST_CASE("Right range is empty") {
     CHECK(iter2 == v2.end());
 }
 
-TEST_CASE("ADD MORE TESTS HERE") {
-    REQUIRE(false);
+TEST_CASE("Simple test") {
+    auto v1 = std::vector<int> { 1, 2, 3, 4 };
+    auto v2 = std::vector<int> { 1, 2, 4, 3 };
+
+    const auto& [iter1, iter2] = mismatch(v1, v2);
+
+    REQUIRE(*iter1 == 3);
+    CHECK(*iter2 == 4);
 }
