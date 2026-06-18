@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wondrous {
+    // because we made WondrousException a checked exception, this needs to
+    // be declared in the method signature.
     public List<Integer> wondrous(int start) throws WondrousException {
         if (start <= 0) {
             throw new WondrousException("start must be positive");
