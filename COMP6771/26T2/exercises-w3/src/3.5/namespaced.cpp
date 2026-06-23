@@ -3,13 +3,20 @@
 #include <iostream>
 
 int main() {
-    /*namespace spaceland = comp6771;
+    comp6771::test();
+    namespace spaceland = comp6771;
+    spaceland::test();
+
+    // this is a better alternative to using namespace std if you need
+    // to use vector a lot.
+    using std::vector;
+    vector<int> v;
 
     // should be an alias for std::vector.
-    auto v = spaceland::vector{6771};
+    auto v = comp6771::vector{6771};
     
     // name: earth, position from sun: 3
-    // a planet is a kind of 
+    // a planet is a kind of
     auto earth = spaceland::planet{"earth", 3};
 
     // should produce an object with the same type as the "earth" variable above.
@@ -17,5 +24,5 @@ int main() {
 
     std::cout << v[0] << std::endl;
     std::cout << earth.name << std::endl;
-    std::cout << old_earth.pos << std::endl;*/
+    std::cout << old_earth.pos << std::endl;
 }

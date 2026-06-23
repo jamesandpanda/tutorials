@@ -11,8 +11,7 @@ int main(void) {
     while (std::getline(fp, buffer)) {
         std::cout << "read value: " << buffer << '\n';
     }
-
-    
+ 
     // second method, you get a vector of integers out
     auto fp2 = std::ifstream{"marks.txt"};
     auto vector = std::vector<int>{std::istream_iterator<int>{fp2}, std::istream_iterator<int>{}};
