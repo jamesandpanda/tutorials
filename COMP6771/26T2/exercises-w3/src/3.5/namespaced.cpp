@@ -10,11 +10,11 @@ int main() {
     // this is a better alternative to using namespace std if you need
     // to use vector a lot.
     using std::vector;
-    vector<int> v;
+    vector<int> example;
 
-    // should be an alias for std::vector.
+    // should be an alias for std::vector<int>.
     auto v = comp6771::vector{6771};
-    
+ 
     // name: earth, position from sun: 3
     // a planet is a kind of
     auto earth = spaceland::planet{"earth", 3};
