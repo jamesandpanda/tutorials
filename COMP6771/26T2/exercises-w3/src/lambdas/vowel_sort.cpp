@@ -9,6 +9,8 @@ auto is_vowel(const char& c) -> bool {
 }
 
 auto cmp_vowels(std::string& s1, std::string& s2) -> bool {
+    // you can pass in normally declared functions as follows, don't need to explicitly
+    // use a lambda; I was wrong about this during the tutorial!!
     auto count1 = std::count_if(s1.begin(), s1.end(), is_vowel);
     auto count2 = std::count_if(s2.begin(), s2.end(), is_vowel);
 
