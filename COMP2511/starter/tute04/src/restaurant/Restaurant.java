@@ -14,7 +14,7 @@ public class Restaurant {
         this.menu = menu;
     }
 
-    public void displayOrder(List<Meal> order, String customer) {
+    public void completeOrder(List<Meal> order, String customer) {
         System.out.println("========================");
         System.out.println("Order for " + customer + ":");
         System.out.println("========================");
@@ -75,27 +75,5 @@ public class Restaurant {
 
     public void setChargingStrategy(String chargingStrategy) {
         this.chargingStrategy = chargingStrategy;
-    }
-
-    public static void main(String[] args) {
-        List<Meal> menu = List.of(
-            new Meal("Avocado on Toast", 20),
-            new Meal("Strawberry Matcha", 10),
-            new Meal("Dubai Chocolate Strawberry Cup", 50),
-            new Meal("Gurt Yogurt", 100),
-            new Meal("Labubu Cake", 1000));
-        Restaurant r = new Restaurant("2511 Cafe", menu);
-        r.displayMenu();
-
-        List<Meal> order = List.of(
-            new Meal("Strawberry Matcha", 10),
-            new Meal("Labubu Cake", 1000));
-        r.displayOrder(order, "James");
-
-        // r.setChargingStrategy("happyHour");
-        // r.displayOrder(order, "James");
-
-        // r.addMember("James");
-        // r.displayOrder(order, "James");
     }
 }
