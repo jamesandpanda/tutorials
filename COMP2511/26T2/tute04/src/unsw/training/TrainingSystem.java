@@ -8,14 +8,9 @@ public class TrainingSystem {
 
     public LocalDate bookTraining(String attendee, List<LocalDate> availabilities) {
         for (Trainer trainer : trainers) {
-            for (Seminar seminar : trainer.getSeminars()) {
-                for (LocalDate availability : availabilities) {
-                    if (seminar.getStart().equals(availability) &&
-                            seminar.getAttendees().size() < 10) {
-                        seminar.getAttendees().add(attendee);
-                        return availability;
-                    }
-                }
+            LocalDate bookedDate = trainer.bookTraining(attendee, availabilities);
+            if (bookedDate != null) {
+                return bookedDate;
             }
         }
         return null;

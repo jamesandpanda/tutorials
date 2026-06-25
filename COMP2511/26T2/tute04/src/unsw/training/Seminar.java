@@ -19,4 +19,12 @@ public class Seminar {
     public List<String> getAttendees() {
         return attendees;
     }
+
+    public boolean canAcceptAttendee(LocalDate availability) {
+        return start.equals(availability) && attendees.size() < 10;
+    }
+
+    public void addAttendee(String attendee) {
+        attendees.add(attendee);
+    }
 }
