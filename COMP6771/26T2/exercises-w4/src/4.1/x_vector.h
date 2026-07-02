@@ -19,9 +19,13 @@ public:
         1. CONSTRUCTORS
     */
 
+    // default destructor
+    xector::~xector() = default;
+
     // default constructor
     xector();
     // construct from an initialiser list
+
     xector(std::initializer_list<std::string>);
     // construct from a range in an existing std::vector
     xector(std::vector<std::string>::const_iterator, std::vector<std::string>::const_iterator);

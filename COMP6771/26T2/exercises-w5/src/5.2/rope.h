@@ -52,53 +52,29 @@ public:
 
 	explicit rope(std::vector<std::string> rope) : rope_{std::move(rope)} {}
 
-	auto begin() -> iterator {
-		return { rope_.begin(), rope_.end() };
-	}
-	
-	auto end() -> iterator {
-		return { rope_.end(), rope_.end() };
-	}
+	auto begin() -> iterator;
 
-	auto begin() const -> const_iterator {
-		return { rope_.begin(), rope_.end() };
-	}
+	auto end() -> iterator;
 
-	auto end() const -> const_iterator {
-		return { rope_.end(), rope_.end() };
-	}
+	auto begin() const -> const_iterator;
 
-	auto cbegin() const -> const_iterator {
-		return begin();
-	}
+	auto end() const -> const_iterator;
 
-	auto cend() const -> const_iterator {
-		return end();
-	}
+	auto cbegin() const -> const_iterator;
 
-	auto rbegin() -> reverse_iterator {
-		return reverse_iterator{ end() };
-	}
-	
-	auto rend() -> reverse_iterator {
-		return reverse_iterator{ begin() };
-	}
-	
-	auto rbegin() const -> const_reverse_iterator {
-		return const_reverse_iterator{ end() };
-	}
-	
-	auto rend() const -> const_reverse_iterator {
-		return const_reverse_iterator{ begin() };
-	}
-	
-	auto crbegin() const -> const_reverse_iterator {
-		return rbegin();
-	}
-	
-	auto crend() const -> const_reverse_iterator {
-		return rend();
-	}
+	auto cend() const -> const_iterator;
+
+	auto rbegin() -> reverse_iterator;
+
+	auto rend() -> reverse_iterator;
+
+	auto rbegin() const -> const_reverse_iterator;
+
+	auto rend() const -> const_reverse_iterator;
+
+	auto crbegin() const -> const_reverse_iterator;
+
+	auto crend() const -> const_reverse_iterator;
 
 private:
 	std::vector<std::string> rope_;
