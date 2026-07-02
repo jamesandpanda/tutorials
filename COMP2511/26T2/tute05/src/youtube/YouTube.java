@@ -7,6 +7,11 @@ public class YouTube {
         User u2 = new User("compscimenace2");
         User u3 = new User("COMP2511Hater4");
 
-        // TODO Make u1 and u2 subscribe to p and have p upload a video
+        y.addSubscriber(u1);
+        y.addSubscriber(u2);
+        y.createVideo("Tutorial on Observer Pattern");
+
+        y.removeSubscriber(u2);
+        y.createVideo("Welcome to 2511 26T3!");
     }
 }

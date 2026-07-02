@@ -1,6 +1,9 @@
 package calculator;
 
+import calculator.expressions.Addition;
 import calculator.expressions.Expression;
+import calculator.expressions.Number;
+import calculator.expressions.Subtraction;
 
 public class Calculator {
     private Expression expr;
@@ -10,11 +13,14 @@ public class Calculator {
     }
 
     public double evaluate() {
-        // TODO: Evaluate expression stored in calculator
-        return 0;
+        return expr.evaluate();
     }
 
     public static void main(String[] args) {
-        
+        // (2 + 3) - 4
+        Expression lhs = new Addition(new Number(2), new Number(3));
+        Expression rhs = new Number(4);
+        Expression overall = new Subtraction(lhs, rhs);
+        System.out.println(overall.evaluate());
     }
 }
