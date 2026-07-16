@@ -2,7 +2,27 @@ package milktea;
 
 public class Cafe {
     public static void main(String[] args) {
-        MilkTea m = new MilkTea();
+        MenuItem m = new MilkTea();
+        System.out.println(m.getDescription());
+        System.out.println(m.getCost());
+
+        m = new Pearls(m);
+        System.out.println(m.getDescription());
+        System.out.println(m.getCost());
+
+        m = new Pearls(m);
+        System.out.println(m.getDescription());
+        System.out.println(m.getCost());
+
+        m = new LycheeJelly(m);
+        System.out.println(m.getDescription());
+        System.out.println(m.getCost());
+
+        m = new MilkFoam(m);
+        System.out.println(m.getDescription());
+        System.out.println(m.getCost());
+
+        m = m.removeDecorator();
         System.out.println(m.getDescription());
         System.out.println(m.getCost());
     }
