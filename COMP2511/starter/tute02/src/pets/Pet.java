@@ -14,20 +14,16 @@ public class Pet {
         return name;
     }
 
-    public void makeSound() {
-        // do nothing
-    }
-
     public static void main(String[] args) {
         List<Pet> pets = List.of(new Bird("Blue"), new Cat("Cookie"), new Dog("Duke"));
 
         for (Pet p : pets) {
             if (p instanceof Bird) {
-                System.out.println("I am bird" + p.getName());
+                System.out.println("I am bird " + p.getName());
             } else if (p instanceof Cat) {
-                System.out.println("I am cat" + p.getName());
+                System.out.println("I am cat " + p.getName());
             } else if (p instanceof Dog) {
-                System.out.println("I am dog" + p.getName());
+                System.out.println("I am dog " + p.getName());
             }
         }
     }
