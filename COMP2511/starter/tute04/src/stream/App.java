@@ -5,8 +5,9 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        // Task 1: Print out these words using forEach()
         List<String> words = List.of("hello", "comp2511", "streams");
+
+        // Task 1: Print out the words using forEach()
 
         // Task 2: Re-write the parsing logic using streams
         List<String> numStrings = List.of("1", "2", "2", "3", "3", "4", "5");
