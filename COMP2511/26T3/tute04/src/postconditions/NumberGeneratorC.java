@@ -10,6 +10,7 @@ public class NumberGeneratorC extends NumberGenerator {
     @Override
     public double generateNumber() {
         // Q: Are the preconditions and postconditions valid under LSP?
+        // yes - all whole numbers in this range are still doubles within 0 and 10.
         return Double.valueOf(getRandom().nextInt(0, 10));
     }
 }

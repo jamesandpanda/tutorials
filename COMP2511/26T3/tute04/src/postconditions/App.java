@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class App extends TimerTask {
-    private NumberGenerator gen = new NumberGenerator();
+    private NumberGenerator gen = new NumberGeneratorC();
 
     @Override
     public void run() {

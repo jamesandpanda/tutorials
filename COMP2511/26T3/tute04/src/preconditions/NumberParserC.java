@@ -10,6 +10,8 @@ public class NumberParserC extends NumberParser {
     @Override
     public int parse(String word) {
         // Q: Are the preconditions and postconditions valid under LSP?
+        // this is not valid, since "three" works with the parent class
+        // but does not work with the child class.
 
         word = word.toLowerCase();
         switch (word) {

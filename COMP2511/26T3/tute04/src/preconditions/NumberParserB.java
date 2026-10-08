@@ -10,6 +10,8 @@ public class NumberParserB extends NumberParser {
     @Override
     public int parse(String word) {
         // Q: Are the preconditions and postconditions valid under LSP?
+        // yes - this is a WIDER range of inputs, all original inputs still
+        // work with this class.
 
         switch (word) {
             case "one":

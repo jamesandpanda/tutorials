@@ -6,7 +6,7 @@ public class App {
     // Asks user to input a word until EOF.
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        NumberParser parser = new NumberParser();
+        NumberParser parser = new NumberParserC();
 
         System.out.print("Input a number in words: ");
         while (sc.hasNextLine()) {

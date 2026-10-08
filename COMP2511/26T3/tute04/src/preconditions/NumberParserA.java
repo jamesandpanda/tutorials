@@ -10,6 +10,9 @@ public class NumberParserA extends NumberParser {
     @Override
     public int parse(String word) {
         // Q: Are the preconditions and postconditions valid under LSP?
+        // since it is no longer case-sensitive, this is a WIDER range of inputs
+        // because "ONE", "onE", "oNE" all work, and all the original inputs still
+        // work as well.
 
         word = word.toLowerCase();
         switch (word) {
