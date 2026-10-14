@@ -2,7 +2,7 @@ package restaurant.strategies;
 
 import java.util.Map;
 
-public class MembersDiscount implements ChargingStrategy {
+public class HolidayStrategy implements ChargingStrategy {
     @Override
     public double getModifier() {
         // TODO

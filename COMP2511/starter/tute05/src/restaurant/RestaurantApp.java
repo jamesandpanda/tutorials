@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class RestaurantApp {
     public static Restaurant initialiseRestaurant() {
         Map<String, Double> menu = Map.of(
-            "Avocado on Toast", 20.0,
-            "Iced Matcha Latte", 10.0,
-            "Dubai Chocolate Cup", 50.0,
-            "Crumbl Cookie", 100.0,
-            "Labubu Cake", 500.0
+            "Avo on Toast", 20.0,
+            "Matcha Latte", 8.0,
+            "Coffee", 5.5,
+            "Trains Fried Rice", 25.0,
+            "Labubu Cookie", 1000.0
         );
 
         return new Restaurant(menu);
