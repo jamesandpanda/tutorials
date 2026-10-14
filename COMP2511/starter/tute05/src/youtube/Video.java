@@ -1,16 +1,22 @@
 package youtube;
 
 public class Video {
-    private String name;
-    private YouTuber producer;
+    private String title;
+    private int views;
 
-    public Video(String name, YouTuber producer) {
-        this.name = name;
-        this.producer = producer;
+    public Video(String title) {
+        this.title = title;
     }
 
-    @Override
-    public String toString() {
-        return name + " by " + producer;
+    public void watch() {
+        ++views;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getViews() {
+        return views;
     }
 }
