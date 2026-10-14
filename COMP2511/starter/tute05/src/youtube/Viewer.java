@@ -10,4 +10,12 @@ public class Viewer {
     public Viewer(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getNotifications() {
+        return notifications;
+    }
 }
