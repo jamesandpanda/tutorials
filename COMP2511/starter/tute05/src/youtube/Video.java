@@ -7,6 +7,7 @@ public class Video {
 
     public Video(String title, YouTuber producer) {
         this.title = title;
+        this.producer = producer;
     }
 
     public void watch() {
@@ -14,7 +15,7 @@ public class Video {
     }
 
     public String toString() {
-        return title + "uploaded by " + producer.getName();
+        return title + " by " + producer.getName();
     }
 
     public int getViews() {
