@@ -1,4 +1,4 @@
-package calculator.expressions;
+package calculator;
 
 public class Multiplication implements Expression {
     private Expression expr1;

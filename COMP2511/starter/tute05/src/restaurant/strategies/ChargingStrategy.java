@@ -1,17 +1,10 @@
 package restaurant.strategies;
 
+import java.util.Map;
 import java.util.List;
 
-import restaurant.Meal;
-
 public interface ChargingStrategy {
-    /**
-     * The cost of a meal.
-     */
-    public double cost(List<Meal> order, boolean isMember);
+    public double completeOrder(Map<String, Double> menu, List<String> order, boolean isMember);
 
-    /**
-     * Modifying factor of charges for customers.
-     */
-    public double getModifier(boolean isMember);
+    public void printMenu(Map<String, Double> menu);
 }

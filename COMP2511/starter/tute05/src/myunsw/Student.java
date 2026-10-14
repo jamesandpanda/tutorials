@@ -2,24 +2,18 @@ package myunsw;
 
 public class Student {
     private int id;
-    private int program;
-    private int luck;
+    private int programCode;
 
-    public Student(int id, int program, int luck) {
+    public Student(int id, int programCode) {
         this.id = id;
-        this.program = program;
-        this.luck = luck;
+        this.programCode = programCode;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getProgram() {
-        return program;
-    }
-
-    public int getLuck() {
-        return luck;
+    public int getProgramCode() {
+        return programCode;
     }
 }

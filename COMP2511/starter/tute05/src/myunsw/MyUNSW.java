@@ -3,7 +3,6 @@ package myunsw;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 
 public class MyUNSW {
@@ -31,10 +30,9 @@ public class MyUNSW {
                 int id = nextStudentId;
                 ++nextStudentId;
                 int programCode = PROGRAMS.get(program);
-                int luck = new Random().nextInt(1, 11);
 
-                students.add(new Student(id, programCode, luck));
-                System.out.println("Enrolled new student with id " + id + " in program " + programCode + " with " + luck + " luck.");
+                students.add(new Student(id, programCode));
+                System.out.println("Enrolled new student with id " + id + " in program " + programCode);
             }
         }
 

@@ -1,21 +1,19 @@
 package restaurant.strategies;
 
 import java.util.List;
-
-import restaurant.Meal;
+import java.util.Map;
 
 public class StandardStrategy implements ChargingStrategy {
     private static final double MODIFIER = 1;
 
     @Override
-    public double cost(List<Meal> order, boolean isMember) {
+    public double completeOrder(Map<String, Double> menu, List<String> order, boolean isMember) {
         // TODO
         return 0;
     }
 
     @Override
-    public double getModifier(boolean isMember) {
+    public void printMenu(Map<String, Double> menu) {
         // TODO
-        return 0;
     }
 }

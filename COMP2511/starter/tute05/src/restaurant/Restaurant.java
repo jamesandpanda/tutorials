@@ -1,72 +1,16 @@
 package restaurant;
 
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 public class Restaurant {
     private String chargingStrategy = "standard";
-    private String name;
-    private List<String> members = new ArrayList<String>();
-    private List<Meal> menu = new ArrayList<Meal>();
+    private Map<String, Double> menu = new HashMap<String, Double>();
+    private List<String> members = List.of("James");
 
-    public Restaurant(String name, List<Meal> menu) {
-        this.name = name;
+    public Restaurant(Map<String, Double> menu) {
         this.menu = menu;
-    }
-
-    public void completeOrder(List<Meal> order, String customer) {
-        System.out.println("========================");
-        System.out.println("Order for " + customer + ":");
-        System.out.println("========================");
-
-        double modifier = switch (chargingStrategy) {
-            case "standard" -> 1;
-            case "holiday" -> 1.15;
-            case "happyHour" -> {
-                if (members.contains(customer)) {
-                    yield 0.6;
-                } else {
-                    yield 0.7;
-                }
-            }
-            default -> 0;
-        };
-
-        for (Meal meal : order) {
-            System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
-        }
-
-        double cost = switch (chargingStrategy) {
-            case "standard" -> order.stream().mapToDouble(meal -> meal.getCost()).sum();
-            case "holiday" -> order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
-            case "happyHour" -> {
-                if (members.contains(customer)) {
-                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
-                } else {
-                    yield order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
-                }
-            }
-            default -> 0;
-        };
-
-        System.out.println("Total: " + "$" + cost);
-    }
-
-    public void displayMenu() {
-        System.out.println("========================");
-        System.out.println("Welcome to " + name + "!");
-        System.out.println("========================");
-
-        double modifier = switch (chargingStrategy) {
-            case "standard" -> 1;
-            case "holiday" -> 1.15;
-            case "happyHour" -> 0.7;
-            default -> 0;
-        };
-
-        for (Meal meal : menu) {
-            System.out.println(meal.getName() + " - " + "$" + meal.getCost() * modifier);
-        }
     }
 
     public void addMember(String member) {
@@ -75,5 +19,53 @@ public class Restaurant {
 
     public void setChargingStrategy(String chargingStrategy) {
         this.chargingStrategy = chargingStrategy;
+    }
+
+    public void completeOrder(List<String> order, String customer) {
+        System.out.println("========================");
+        System.out.println("Order for " + customer + ":");
+        System.out.println("========================");
+
+        double modifier = switch (chargingStrategy) {
+            case "standard" -> 1;
+            case "holiday" -> 1.15;
+            case "membersDiscount" -> {
+                if (members.contains(customer)) {
+                    yield 0.8;
+                } else {
+                    yield 1;
+                }
+            }
+            default -> 0;
+        };
+
+        for (String item : order) {
+            double cost = menu.getOrDefault(item, 0.0);
+            System.out.printf("%s - $%.2f\n", item, cost * modifier);
+        }
+
+        double cost = order.stream().mapToDouble(item -> menu.getOrDefault(item, 0.0) * modifier).sum();
+        System.out.printf("Total: $%.2f\n", cost);
+    }
+
+    public void displayMenu() {
+        System.out.println("========================");
+        System.out.println("Welcome to 2511 Cafe!");
+        System.out.println("========================");
+
+        menu.forEach((item, cost) -> {
+            switch (chargingStrategy) {
+                case "standard":
+                    System.out.printf("%s - $%.2f\n", item, cost);
+                    break;
+                case "holiday":
+                    System.out.printf("%s - $%.2f\n", item, cost * 1.15);
+                    break;
+                case "membersDiscount":
+                    System.out.printf("%s - $%.2f ($%.2f discount for members)\n", item,
+                        cost, cost * 0.2);
+                    break;
+            }
+        });
     }
 }
