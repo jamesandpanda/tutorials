@@ -8,7 +8,7 @@ public class MembersDiscount implements ChargingStrategy {
     private static final double MEMBER_MODIFIER = 0.8;
 
     @Override
-    public double completeOrder(Map<String, Double> menu, List<String> order, boolean isMember) {
+    public double completeOrder(Map<String, Double> menu, List<String> order) {
         // TODO
         return 0;
     }

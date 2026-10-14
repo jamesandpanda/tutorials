@@ -7,7 +7,7 @@ public class HolidayStrategy implements ChargingStrategy {
     private static final double MODIFIER = 1.15;
 
     @Override
-    public double completeOrder(Map<String, Double> menu, List<String> order, boolean isMember) {
+    public double completeOrder(Map<String, Double> menu, List<String> order) {
         // TODO
         return 0;
     }
