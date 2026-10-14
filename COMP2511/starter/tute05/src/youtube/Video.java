@@ -3,8 +3,9 @@ package youtube;
 public class Video {
     private String title;
     private int views;
+    private YouTuber producer;
 
-    public Video(String title) {
+    public Video(String title, YouTuber producer) {
         this.title = title;
     }
 
@@ -12,8 +13,8 @@ public class Video {
         ++views;
     }
 
-    public String getTitle() {
-        return title;
+    public String toString() {
+        return title + "uploaded by " + producer.getName();
     }
 
     public int getViews() {
