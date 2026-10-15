@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+import restaurant.strategies.*;
+
 public class RestaurantApp {
     public static Restaurant initialiseRestaurant() {
         Map<String, Double> menu = Map.of(
@@ -24,7 +26,18 @@ public class RestaurantApp {
 
         System.out.print("Please select a charging strategy (standard/holiday/membersDiscount): ");
         String chargingStrategy = sc.nextLine();
-        r.setChargingStrategy(chargingStrategy);
+
+        switch (chargingStrategy) {
+            case "standard":
+                r.setChargingStrategy(new StandardStrategy());
+                break;
+            case "holiday":
+                r.setChargingStrategy(new HolidayStrategy());
+                break;
+            case "membersDiscount":
+                r.setChargingStrategy(new MembersDiscountStrategy());
+                break;
+        }
 
         r.displayMenu();
 

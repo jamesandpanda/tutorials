@@ -1,11 +1,15 @@
 package restaurant;
 
 import java.util.Map;
+
+import restaurant.strategies.ChargingStrategy;
+import restaurant.strategies.StandardStrategy;
+
 import java.util.HashMap;
 import java.util.List;
 
 public class Restaurant {
-    private String chargingStrategy = "standard";
+    private ChargingStrategy chargingStrategy = new StandardStrategy();
     private Map<String, Double> menu = new HashMap<String, Double>();
     private List<String> members = List.of("James");
 
@@ -17,7 +21,7 @@ public class Restaurant {
         members.add(member);
     }
 
-    public void setChargingStrategy(String chargingStrategy) {
+    public void setChargingStrategy(ChargingStrategy chargingStrategy) {
         this.chargingStrategy = chargingStrategy;
     }
 
@@ -26,18 +30,7 @@ public class Restaurant {
         System.out.println("Order for " + customer + ":");
         System.out.println("========================");
 
-        double modifier = switch (chargingStrategy) {
-            case "standard" -> 1;
-            case "holiday" -> 1.15;
-            case "membersDiscount" -> {
-                if (members.contains(customer)) {
-                    yield 0.8;
-                } else {
-                    yield 1;
-                }
-            }
-            default -> 0;
-        };
+        double modifier = chargingStrategy.getModifier(members.contains(customer));
 
         for (String item : order) {
             double cost = menu.getOrDefault(item, 0.0);
@@ -53,19 +46,6 @@ public class Restaurant {
         System.out.println("Welcome to 2511 Cafe!");
         System.out.println("========================");
 
-        menu.forEach((item, cost) -> {
-            switch (chargingStrategy) {
-                case "standard":
-                    System.out.printf("%s - $%.2f\n", item, cost);
-                    break;
-                case "holiday":
-                    System.out.printf("%s - $%.2f\n", item, cost * 1.15);
-                    break;
-                case "membersDiscount":
-                    System.out.printf("%s - $%.2f ($%.2f discount for members)\n", item,
-                        cost, cost * 0.2);
-                    break;
-            }
-        });
+        chargingStrategy.printMenu(menu);
     }
 }
