@@ -1,13 +1,23 @@
 package overcooked;
 
 public class OvenMitts {
+    // synchronized
+    private static OvenMitts instance;
     private Oven oven;
 
-    public OvenMitts(Oven oven) {
+    private OvenMitts(Oven oven) {
         this.oven = oven;
     }
 
-    public void useOven(String chef, int cakesNeeded) {
+    public static synchronized OvenMitts getInstance(Oven oven) {
+        if (instance == null) {
+            instance = new OvenMitts(oven);
+        }
+
+        return instance;
+    }
+
+    public synchronized void useOven(String chef, int cakesNeeded) {
         System.out.println(chef + " puts on the oven mitts and opens the oven...");
 
         for (int i = 0; i < cakesNeeded; i++) {
