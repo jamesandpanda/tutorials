@@ -1,6 +1,6 @@
 package outfits;
 
-public class Pants {
+public abstract class Pants {
     private String material;
     private double cost;
 
