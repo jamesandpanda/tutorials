@@ -1,13 +1,13 @@
 package icecream;
 
-public class StrawberryIceCream extends IceCream {
+public class IceCreamCone extends IceCream {
     @Override
     public String getDescription() {
-        return "Ice Cream Cone with Strawberry Scoop";
+        return "Ice Cream Cone";
     }
 
     @Override
     public double getCost() {
-        return 5.20;
+        return 0.70;
     }
 }

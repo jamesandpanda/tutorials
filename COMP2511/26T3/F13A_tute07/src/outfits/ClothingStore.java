@@ -9,21 +9,22 @@ public class ClothingStore {
         System.out.print("Welcome! What type of outfit are you looking for? (casual|formal): ");
         String line = sc.nextLine().toLowerCase();
 
+        ClothingFactory factory;
         switch (line) {
             case "casual":
-                TShirt tShirt = new TShirt();
-                Trousers trousers = new Trousers(); // mismatched
-                System.out.println("I recommend these pieces: " + tShirt.toString() + " and " + trousers.toString());
+                factory = new CasualClothingFactory();
                 break;
             case "formal":
-                OxfordShirt oxfordShirt = new OxfordShirt();
-                Jeans jeans = new Jeans(); // mismatched
-                System.out.println("I recommend these pieces: " + oxfordShirt.toString() + " and " + jeans.toString());
+                factory = new FormalClothingFactory();
                 break;
             default:
                 sc.close();
                 throw new IllegalArgumentException("Unknown outfit type.");
         }
+
+        Shirt s = factory.createShirt();
+        Pants p = factory.createPants();
+        System.out.println("I recommend these pieces: " + s.toString() + " and " + p.toString());
 
         sc.close();
     }
